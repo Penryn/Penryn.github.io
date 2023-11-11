@@ -6,7 +6,7 @@
   <link href="https://penryn.github.io/atom.xml" rel="self"/>
   
   <link href="https://penryn.github.io/"/>
-  <updated>2023-11-03T07:30:31.434Z</updated>
+  <updated>2023-11-11T03:40:08.455Z</updated>
   <id>https://penryn.github.io/</id>
   
   <author>
@@ -17,18 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://penryn.github.io/2023/11/03/hello-world/"/>
-    <id>https://penryn.github.io/2023/11/03/hello-world/</id>
-    <published>2023-11-03T07:30:31.434Z</published>
-    <updated>2023-11-03T07:30:31.434Z</updated>
+    <title>手把手教你搭建属于你自己的hexo博客，并布置在github page上</title>
+    <link href="https://penryn.github.io/2023/11/11/createblog/"/>
+    <id>https://penryn.github.io/2023/11/11/createblog/</id>
+    <published>2023-11-11T03:35:32.000Z</published>
+    <updated>2023-11-11T03:40:08.455Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;1-环境配置&quot;&gt;&lt;a href=&quot;#1-环境配置&quot; class=&quot;headerlink&quot;</summary>
         
       
     
