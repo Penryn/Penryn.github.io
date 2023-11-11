@@ -60,9 +60,9 @@ Git
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.0.0">
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="望舒的尘歌壶" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="望舒的尘歌壶" type="application/atom+xml">
 </head>
 
 
@@ -373,7 +373,7 @@ Git
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.1k
                 </div>
                 
 
@@ -389,6 +389,11 @@ Git
         <link rel="stylesheet" href="/libs/prism/prism.min.css">
         
 
+        
+        <!-- 代码块折行 -->
+        <style type="text/css">
+            code[class*="language-"], pre[class*="language-"] { white-space: pre-wrap !important; }
+        </style>
         
 
         <div class="card-content article-card-content">
@@ -406,7 +411,7 @@ Git
 <li><p>安装完毕后可以通过cmd命令行输入node -v,npm -v和git –version来验证，如果出现下图则安装成功。<br><img src="/../picture/createblog/1.png" alt="图片"></p>
 </li>
 <li><p>修改npm的镜像源为在国内更为稳定的淘宝镜像源（建议永久设置）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">临时改变镜像源 </span><br><span class="line">npm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">&nbsp;   永久设置为淘宝镜像源</span><br><span class="line">&nbsp;   npm config set registry https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">&nbsp;   cnpm安装，在国外服务器不佳时就可以用cnpm代替npm命令</span><br><span class="line">&nbsp;   npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">临时改变镜像源 </span><br><span class="line">npm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">永久设置为淘宝镜像源</span><br><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">cnpm安装，在国外服务器不佳时就可以用cnpm代替npm命令</span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 <hr>
 <h2 id="2-github准备"><a href="#2-github准备" class="headerlink" title="2.github准备"></a>2.github准备</h2><ol>
@@ -422,8 +427,8 @@ Git
 </ol>
 <hr>
 <h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h2><ol>
-<li>首先新建一个文件夹👀作为你的博客文件的存放位置，点进去打开Git命令行分别输入<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># hexo框架的安装</span><br><span class="line">&nbsp;   npm install -g hexo-cli</span><br><span class="line">&nbsp; </span><br><span class="line">&nbsp;   # 等上一个命令完成后，再输入下面的命令</span><br><span class="line">&nbsp;   hexo init</span><br><span class="line">&nbsp; &nbsp; </span><br><span class="line">&nbsp;   # 安装博客所需要的依赖文件(如果上面安装了cnpm则可以把下面的npm换成cnpm)</span><br><span class="line">&nbsp;   npm install</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure></li>
-<li>等待运行完成，你会发现此时文件夹内多了好多文件。此时本地搭建完成，我们来运行一下试试看，输入以下命令.<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  &nbsp;hexo g</span><br><span class="line">&nbsp;  hexo s</span><br></pre></td></tr></tbody></table></figure>
+<li>首先新建一个文件夹👀作为你的博客文件的存放位置，点进去打开Git命令行分别输入<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># hexo框架的安装</span><br><span class="line">npm install -g hexo-cli</span><br><span class="line">&nbsp; </span><br><span class="line"># 等上一个命令完成后，再输入下面的命令</span><br><span class="line">hexo init</span><br><span class="line">&nbsp; &nbsp; </span><br><span class="line"># 安装博客所需要的依赖文件(如果上面安装了cnpm则可以把下面的npm换成cnpm)</span><br><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure></li>
+<li>等待运行完成，你会发现此时文件夹内多了好多文件。此时本地搭建完成，我们来运行一下试试看，输入以下命令.<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g                                      </span><br><span class="line">&nbsp; hexo s                                                           </span><br></pre></td></tr></tbody></table></figure>
 <img src="/../picture/createblog/4.png" alt="图片"></li>
 <li>根据提示我们打开 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> ，就可以看到生成的网页，说明Hexo已经成功在本地运行.</li>
 </ol>
@@ -431,7 +436,7 @@ Git
 <h2 id="4-发布到github"><a href="#4-发布到github" class="headerlink" title="4.发布到github"></a>4.发布到github</h2><p>我们已经完成了Hexo下载安装和本地运行，接下来将本地博客发布到Github让别人也能通过网址访问你的博客。</p>
 <ol>
 <li><p>在博客所在文件夹下打开Git命令行，分别输入以下命令(如果上面安装了cnpm则可以把下面的npm换成cnpm)</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&nbsp;  # 安装用来发布的插件</span><br><span class="line">&nbsp;  npm install hexo-deployer-git --save</span><br><span class="line">&nbsp;​</span><br><span class="line">&nbsp;  # 将本地目录与Github关联起来</span><br><span class="line">&nbsp;  # 这步输入后一直回车即可</span><br><span class="line">&nbsp;  ssh-keygen -t rsa -C "你的邮箱地址"</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装用来发布的插件</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">&nbsp;​</span><br><span class="line"># 将本地目录与Github关联起来</span><br><span class="line"># 这步输入后一直回车即可</span><br><span class="line">ssh-keygen -t rsa -C "你的邮箱地址"</span><br></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>在 C:/Users/[电脑登录的用户名] 目录下找到名为.ssh 的文件夹，打开其中的 id_rsa.pub，复制里面的的内容。 然后打开 Github，点击右上角的头像 Settings 选择 SSH and GPG keys。<br><img src="/../picture/createblog/6.png" alt="图片"><br><img src="/../picture/createblog/7.png" alt="图片"></p>
 </li>
@@ -442,10 +447,10 @@ Git
 <li><p>进入博客站点目录，用文本编辑器打开_config.yml，这个_config.yml 是博客的配置文件，在以后会经常使用到，修改如下图的几个地方：<br><img src="/../picture/createblog/9.png" alt="图片"></p>
 </li>
 <li><p>然后滑到文件最底部deploy处添加如下代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&nbsp;  type: git</span><br><span class="line">&nbsp;  repo: git@github.com:github用户名/github用户名.github.io.git &nbsp;</span><br><span class="line">&nbsp;  branch: master     (或者是main)</span><br></pre></td></tr></tbody></table></figure></li>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&nbsp; type: git</span><br><span class="line">&nbsp; repo: git@github.com:github用户名/github用户名.github.io.git &nbsp;</span><br><span class="line">&nbsp; branch: master     (或者是main)</span><br></pre></td></tr></tbody></table></figure></li>
 </ol>
 <p>7.最后一步，生成页面并发布，我们执行如下命令</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&nbsp;  # generate, Hexo会根据配置文件渲染出一套静态页面</span><br><span class="line">&nbsp;  hexo g</span><br><span class="line">&nbsp;​</span><br><span class="line">&nbsp;  # deploy, 将上一步渲染出的一系列文件上传至至Github Pages</span><br><span class="line">&nbsp;  hexo d</span><br><span class="line">&nbsp;​</span><br><span class="line">&nbsp;  # 或者也可以直接输入此命令，直接完成渲染和上传</span><br><span class="line">&nbsp;  hexo g -d</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&nbsp; # generate, Hexo会根据配置文件渲染出一套静态页面</span><br><span class="line">&nbsp; hexo g</span><br><span class="line">&nbsp;​</span><br><span class="line">&nbsp; # deploy, 将上一步渲染出的一系列文件上传至至Github Pages</span><br><span class="line">&nbsp; hexo d</span><br><span class="line">&nbsp;​</span><br><span class="line">&nbsp; # 或者也可以直接输入此命令，直接完成渲染和上传</span><br><span class="line">&nbsp; hexo g -d</span><br></pre></td></tr></tbody></table></figure>
 <p>上传完成后，在浏览器中打开网址 你的github用户名.github.io，查看上传的网页。如果页面变成了之前本地调试时的样子，说明上传完成了。没变的话查看一下上传时命令行窗口的信息有没有错误信息，没有的话等一下或按ctrl+f5刷新清除一下浏览器缓存试试。</p>
 
                 
@@ -545,10 +550,10 @@ Git
                         <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
                     </ul>
                     <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                        <img src="/5.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/4.jpg" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -839,7 +844,7 @@ Git
     
 
     <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
+         style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
@@ -870,6 +875,60 @@ Git
             <br>
 
             <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2023";
+                        var startMonth = "11";
+                        var startDate = "3";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已运行 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已運行 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已运行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已運行 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
             
             <br>
             
