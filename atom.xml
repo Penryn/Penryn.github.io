@@ -6,7 +6,7 @@
   <link href="https://penryn.github.io/atom.xml" rel="self"/>
   
   <link href="https://penryn.github.io/"/>
-  <updated>2023-11-11T18:40:45.204Z</updated>
+  <updated>2024-01-24T05:17:19.793Z</updated>
   <id>https://penryn.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>矩阵与线性变换</title>
+    <link href="https://penryn.github.io/2024/01/24/linear-transformation/"/>
+    <id>https://penryn.github.io/2024/01/24/linear-transformation/</id>
+    <published>2024-01-24T03:44:12.000Z</published>
+    <updated>2024-01-24T05:17:19.793Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;明明线代已经考完了，笔者现在才重新在几何理解线代，属实有点奇怪。&lt;br&gt;今天在b站的&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="线性代数" scheme="https://penryn.github.io/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>gorm的多种关联方式</title>
+    <link href="https://penryn.github.io/2023/11/23/gorm-association/"/>
+    <id>https://penryn.github.io/2023/11/23/gorm-association/</id>
+    <published>2023-11-23T03:56:12.000Z</published>
+    <updated>2024-01-24T03:47:03.993Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://gorm.io/zh_CN/docs/belongs_to.html&quot;&gt;Gorm官网&lt;/a&gt;上将这个分成了belongs to，has one，has many，many to</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://penryn.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="go" scheme="https://penryn.github.io/tags/go/"/>
+    
+    <category term="数据库" scheme="https://penryn.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>手把手教你搭建属于你自己的hexo博客，并布置在github page上</title>

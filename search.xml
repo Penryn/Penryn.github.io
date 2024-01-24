@@ -4,6 +4,52 @@
   
     
     <entry>
+      <title>矩阵与线性变换</title>
+      <link href="/2024/01/24/linear-transformation/"/>
+      <url>/2024/01/24/linear-transformation/</url>
+      
+        <content type="html"><![CDATA[<p>明明线代已经考完了，笔者现在才重新在几何理解线代，属实有点奇怪。<br>今天在b站的<a href="https://space.bilibili.com/88461692">3Blue1Brown</a>听他的线性代数本质，清晰了许多。</p><p><strong>很遗憾，矩阵是什么是说不清的，你必须得自己看看。——墨菲斯</strong></p><p>首先，我们可以知道，直角坐标系中，任意一个向量可以用两个最基本的正交基向量表示，而将两个向量变换（不改变原点位置，直线仍然是直线，对应平行线依旧平行）后的位置，他们坐标会发生变化，相应的，他们所构成的向量也会发生变化。</p><p>事实上，我们想要知道变换后的向量的坐标，我们只需要变换后的基向量的坐标和他们之间的几何关系就可以求得。</p><p>而变化后的基向量的坐标（3，-2）（2，1）组成一个矩阵，而原线性关系为（5，7），具体可看下面的图片<br><img src="https://github.com/Penryn/picture/blob/main/1.png?raw=true" alt="图片"><br><img src="https://github.com/Penryn/picture/blob/main/3.png?raw=true" alt="图片"></p><p>将其抽象出来，我们可以得到矩阵乘于向量的几何含义，就是通过这样的运算得到所构成向量的新坐标。<br><img src="https://github.com/Penryn/picture/blob/main/4.png?raw=true" alt="图片"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 线性代数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>gorm的多种关联方式</title>
+      <link href="/2023/11/23/gorm-association/"/>
+      <url>/2023/11/23/gorm-association/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://gorm.io/zh_CN/docs/belongs_to.html">Gorm官网</a>上将这个分成了belongs to，has one，has many，many to many这些关系，今天笔者就简单分成这三种关系（一对一，一对多和多对多）来逐一讲解。</p><hr><h2 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h2><p>以笔者写的一份项目为例（一个用户对应一个用户信息）</p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package models</span><br><span class="line"></span><br><span class="line">type User struct {</span><br><span class="line">UserID     int      `json:"-" gorm:"primaryKey"`</span><br><span class="line">Name       string   `json:"name"`</span><br><span class="line">Password   []byte   `json:"-"`</span><br><span class="line">Userinfo   Userinfo `json:"-"`</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">type Userinfo struct {</span><br><span class="line">ID       int    `json:"-" `</span><br><span class="line">UserID   int    `json:"-"`</span><br><span class="line">Name     string `json:"name"`</span><br><span class="line">Phone    string `json:"phone"`</span><br><span class="line">Email    string `json:"email"`</span><br><span class="line">Birthday string `json:"birthday"`</span><br><span class="line">Address  string `json:"address"`</span><br><span class="line">Motto    string `json:"motto"`</span><br><span class="line">Avatar   string `json:"avatar"`</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><ol><li>增</li></ol><ul><li><p>创建用户并携带相关个人信息</p></li><li><p>新建用户并关联已有信息</p></li><li><p>新建个人信息并关联已有用户</p></li><li><p>已有用户关联已有信息</p></li></ul><ol start="2"><li>删</li></ol><ul><li><p>清除用户与信息的关系</p></li><li><p>删除用户并连带信息一起删除</p></li><li><p>仅删除信息保留用户</p></li><li><p>仅删除用户保留信息</p></li></ul><ol start="3"><li>改</li></ol><ul><li><p>直接通过信息表修改内容</p></li><li><p>通过用户表修改内容</p></li></ul><ol start="4"><li>查</li></ol><p>（等笔者找个时间补上）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 后端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> go </tag>
+            
+            <tag> 数据库 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>手把手教你搭建属于你自己的hexo博客，并布置在github page上</title>
       <link href="/2023/11/11/createblog/"/>
       <url>/2023/11/11/createblog/</url>
