@@ -53,9 +53,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.0.0">
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="phlin's blog" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="phlin's blog" type="application/atom+xml">
 </head>
 
 
@@ -308,10 +308,23 @@
                                 <span class="chip bg-color">线性代数</span>
                             </a>
                         
+                            <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                                <span class="chip bg-color">人工智能</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                数学
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -327,7 +340,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-24
+                    2024-01-28
                 </div>
                 
 
@@ -393,7 +406,7 @@
 <p>事实上，我们想要知道变换后的向量的坐标，我们只需要变换后的基向量的坐标和他们之间的几何关系就可以求得。</p>
 <p>而变化后的基向量的坐标（3，-2）（2，1）组成一个矩阵，而原线性关系为（5，7），具体可看下面的图片<br><img src="https://github.com/Penryn/picture/blob/main/1.png?raw=true" alt="图片"><br><img src="https://github.com/Penryn/picture/blob/main/3.png?raw=true" alt="图片"></p>
 <p>将其抽象出来，我们可以得到矩阵乘于向量的几何含义，就是通过这样的运算得到所构成向量的新坐标。<br><img src="https://github.com/Penryn/picture/blob/main/4.png?raw=true" alt="图片"></p>
-<h3 id="矩阵矩阵相乘"><a href="#矩阵矩阵相乘" class="headerlink" title="矩阵矩阵相乘"></a>矩阵矩阵相乘</h3><p>在了解过上面矩阵与向量相乘的几何意义后，我们可以进一步理解矩阵与矩阵相乘的几何意义<br>在矩阵与矩阵相乘时，我们是要从右边的矩阵看到左边的矩阵，右边的矩阵可以看作若干个向量所构成的矩阵，然后这个向量以左边矩阵的形式变化。即相当于原来最初的基向量先进行右边矩阵的变换，在分别进行左边矩阵的变换。<br><img src="https://github.com/Penryn/picture/blob/main/5.png?raw=true" alt="图片"><br><img src="https://github.com/Penryn/picture/blob/main/6.png?raw=true" alt="图片"></p>
+<h3 id="矩阵矩阵相乘"><a href="#矩阵矩阵相乘" class="headerlink" title="矩阵矩阵相乘"></a>矩阵矩阵相乘</h3><p>在了解过上面矩阵与向量相乘的几何意义后，我们可以进一步理解矩阵与矩阵相乘的几何意义<br>在矩阵与矩阵相乘时，我们是要从右边的矩阵看到左边的矩阵，右边的矩阵可以看作若干个向量所构成的矩阵，然后这个向量以左边矩阵的变化。即相当于原来最初的基向量先变成右边矩阵的形式，在分别每列进行左边矩阵的变换。<br><img src="https://github.com/Penryn/picture/blob/main/5.png?raw=true" alt="图片"><br><img src="https://github.com/Penryn/picture/blob/main/6.png?raw=true" alt="图片">  </p>
 
                 
             </div>
@@ -460,6 +473,10 @@
                             
                                 <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
                                     <span class="chip bg-color">线性代数</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
+                                    <span class="chip bg-color">人工智能</span>
                                 </a>
                             
                         </div>
@@ -538,43 +555,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2024/01/24/linear-transformation/">
+                <a href="/2024/01/28/linear-regression/">
                     <div class="card-image">
                         
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="矩阵与线性变换">
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="线性回归">
                         
-                        <span class="card-title">矩阵与线性变换</span>
+                        <span class="card-title">线性回归</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            矩阵的理解和矩阵向量乘法的几何理解
+                            线性回归原理及实现
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-01-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-28
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            phlin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ai/" class="post-category">
+                                    ai
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
-                        <span class="chip bg-color">线性代数</span>
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经网络</span>
+                    </a>
+                    
+                    <a href="/tags/pytorch/">
+                        <span class="chip bg-color">pytorch</span>
                     </a>
                     
                 </div>
@@ -824,7 +847,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1.8k</span>
+                        class="white-color">6.1k</span>
             
             
             
