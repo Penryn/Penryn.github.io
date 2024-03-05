@@ -6,7 +6,7 @@
   <link href="https://penryn.github.io/atom.xml" rel="self"/>
   
   <link href="https://penryn.github.io/"/>
-  <updated>2024-01-28T08:05:47.797Z</updated>
+  <updated>2024-03-05T09:03:06.610Z</updated>
   <id>https://penryn.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>寒软项目总结</title>
+    <link href="https://penryn.github.io/2024/03/05/hr-summary/"/>
+    <id>https://penryn.github.io/2024/03/05/hr-summary/</id>
+    <published>2024-03-05T07:55:23.000Z</published>
+    <updated>2024-03-05T09:03:06.610Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;今天中午进行了浙江工业大学的寒假软件大赛的验收答辩，整个过程给人感觉还是比较草率的，但至少在构建的过程中还是学到了不少东西。本次比赛分成三个题目，前两个是奖励综测分，最后一个是奖励米，但最终我们选择了奖励综测分的德育导师双向选择系统。&lt;/p&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="完整项目" scheme="https://penryn.github.io/categories/%E5%AE%8C%E6%95%B4%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+    <category term="go" scheme="https://penryn.github.io/tags/go/"/>
+    
+  </entry>
   
   <entry>
     <title>线性回归</title>
