@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于, phlin&#39;s blog">
-    <meta name="description" content="phlin&#39;s blog">
+    <meta name="keywords" content="neo4j安装, phlin&#39;s blog">
+    <meta name="description" content="Ubuntu安装neo4j">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于 | phlin&#39;s blog</title>
+    <title>neo4j安装 | phlin&#39;s blog</title>
     <link rel="icon" type="image/png" href="/1.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
@@ -271,627 +271,527 @@
 
 </header>
 
-    <style type="text/css">
-    /* don't remove. */
-    .about-cover {
-        height: 75vh;
-    }
-</style>
+    
 
-<div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                望舒的尘歌壶
-                
-            </div>
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "伟大的智慧之神，我最近每晚都在熬夜复习，考试就请让我通过吧!拜托了拜托了…",
-                            
-                                "今晚我要早早躺到床上去，争取早点睡着。伟大的智慧之神啊，求您庇护我的睡眠。好，我要闭上眼睛。",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/../picture/createblog/bg.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">neo4j安装</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-<script>
+
+
+<main class="post-container content">
+
     
-      var bannerUrl = "/medias/featureimages/" + Math.floor(Math.random() * 1) + '.jpg';
-    
-    $('.bg-cover.about-cover').css('background-image', 'url(' + bannerUrl + ')');
-
-</script>
-
-
-    </div>
-</div>
-
-<main class="content">
-
-    <div id="aboutme" class="container about-container">
-        <div class="card">
-            <div class="card-content">
-                <div class="row">
-                    <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
                         
-<div class="statis">
-    <span class="count"><a href="/">7</a></span>
-    <span class="name">文章</span>
-</div>
-
-
-
-<div class="statis">
-    <span class="count"><a href="/categories">7</a></span>
-    <span class="name">分类</span>
-</div>
-
-
-
-<div class="statis">
-    <span class="count"><a href="/tags">10</a></span>
-    <span class="name">标签</span>
-</div>
-
-
+                            <a href="/tags/ubuntu/">
+                                <span class="chip bg-color">ubuntu</span>
+                            </a>
+                        
+                            <a href="/tags/neo4j/">
+                                <span class="chip bg-color">neo4j</span>
+                            </a>
+                        
                     </div>
-                    <div class="col s12 m12 l4">
-                        <div class="profile center-align">
-                            <div class="avatar">
-                                <img src="/3.jpeg" alt="phlin"
-                                     class="circle responsive-img avatar-img">
-                            </div>
-                            <div class="author">
-                                <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
-                                    
-<div class="statis">
-    <span class="count"><a href="/">7</a></span>
-    <span class="name">文章</span>
-</div>
-
-
-
-<div class="statis">
-    <span class="count"><a href="/categories">7</a></span>
-    <span class="name">分类</span>
-</div>
-
-
-
-<div class="statis">
-    <span class="count"><a href="/tags">10</a></span>
-    <span class="name">标签</span>
-</div>
-
-
-                                </div>
-                                <div class="title">phlin</div>
-                                <div class="career">student</div>
-                                <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
-                                    
-    <a href="https://github.com/Penryn" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1519908566@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1519908566" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1519908566" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-
-                                </div>
-                            </div>
-                        </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%A8%A1%E5%9E%8B/" class="post-category">
+                                模型
+                            </a>
+                        
                     </div>
-                    <div class="col l4 hide-on-med-and-down" data-aos="zoom-in-left">
-                        <div class="social-link">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2024-04-26
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2024-04-26
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    293
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    1 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+        
+        <!-- 代码块功能依赖 -->
+        <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.ejs"></script>
+
+        <!-- 代码语言 -->
+        
+        <script type="text/javascript" src="/libs/codeBlock/codeLang.ejs"></script>
+        
+
+        <!-- 代码块复制 -->
+        
+        <script type="text/javascript" src="/libs/codeBlock/codeCopy.ejs"></script>
+        
+
+        <!-- 代码块收缩 -->
+        
+        <script type="text/javascript" src="/libs/codeBlock/codeShrink.ejs"></script>
+        
+
+        <!-- 代码块折行 -->
+        
+        <style type="text/css">
+        code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+        </style>
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>首先更新apt</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></tbody></table></figure>
+
+<p>neo4j需要依赖jdk环境，而且还有版本要求的<br>要求jdk要17版本以上</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openjdk-17-jdk</span><br></pre></td></tr></tbody></table></figure>
+<p>查看是否成功安装</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></tbody></table></figure>
+<p>开始安装neo4j</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://neo4j.com/artifact.php?name=neo4j-community-5.17.0-unix.tar.gz -O neo4j-community-5.17.0-unix.tar.gz</span><br></pre></td></tr></tbody></table></figure>
+<p>解压运行</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xf neo4j-community-5.17.0-unix.tar.gz</span><br></pre></td></tr></tbody></table></figure>
+
+<p>到这里就成功安装了,然后就进入工作目录运行,这是后台一直运行的，不需要存为service</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd neo4j-community-5.17.0</span><br><span class="line">sudo ./bin/neo4j start</span><br></pre></td></tr></tbody></table></figure>
+<p>当然，也可以停止</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./bin/neo4j stop</span><br></pre></td></tr></tbody></table></figure>
+
+<p>远程连接设置，打开配置文件</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim conf/neo4j.conf</span><br></pre></td></tr></tbody></table></figure>
+<p>修改以下代码为true和监听地址修改</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Bolt connector</span><br><span class="line">server.bolt.enabled=true</span><br><span class="line">server.bolt.tls_level=DISABLED</span><br><span class="line">server.bolt.listen_address=:7687</span><br><span class="line">server.bolt.advertised_address=:7687</span><br><span class="line"></span><br><span class="line"># HTTP Connector. There can be zero or one HTTP connectors.</span><br><span class="line">server.http.enabled=true</span><br><span class="line">server.http.listen_address=:7474</span><br><span class="line">server.http.advertised_address=:7474</span><br><span class="line"></span><br><span class="line">server.default_listen_address=0.0.0.0</span><br></pre></td></tr></tbody></table></figure>
+<p>接着保存退出，重新启动服务<br>cd neo4j-community-5.17.0<br>sudo ./bin/neo4j stop<br>sudo ./bin/neo4j start</p>
+<p>最后再云服务器的安全组开放7474和7687两个端口就可以在外面连接该服务器运行的neo4j的知识图谱网页版了。<br>http://（你的ip）:7474/browser/</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">phlin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://penryn.github.io/2024/04/26/neo4j-install/">https://penryn.github.io/2024/04/26/neo4j-install/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">phlin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
                             
-    <a href="https://github.com/Penryn" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1519908566@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1519908566" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1519908566" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-
+                                <a href="/tags/ubuntu/">
+                                    <span class="chip bg-color">ubuntu</span>
+                                </a>
+                            
+                                <a href="/tags/neo4j/">
+                                    <span class="chip bg-color">neo4j</span>
+                                </a>
+                            
                         </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/5.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/4.jpg" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
-
-                <div class="introduction center-align" data-aos="fade-up">a student</div>
-
-                <style type="text/css">
-    #posts-chart,
-    #categories-chart,
-    #tags-chart {
-        width: 100%;
-        height: 300px;
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-    }
-</style>
-
-<div id="postCharts" class="post-charts">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="far fa-bar-chart"></i>&nbsp;&nbsp;文章统计图
-    </div>
-    <div class="row">
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="posts-chart"></div>
-        </div>
-
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="categories-chart"></div>
-        </div>
-
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="tags-chart"></div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script>
-    let postsChart = echarts.init(document.getElementById('posts-chart'));
-    let categoriesChart = echarts.init(document.getElementById('categories-chart'));
-    let tagsChart = echarts.init(document.getElementById('tags-chart'));
-
-    
-
-    let postsOption = {
-        title: {
-            text: '文章发布统计图',
-            top: -5,
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        xAxis: {
-            type: 'category',
-            data: ["2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04"]
-        },
-        yAxis: {
-            type: 'value',
-        },
-        series: [
-            {
-                name: '文章篇数',
-                type: 'line',
-                color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,2,0,2,0,1,2],
-                markPoint: {
-                    symbolSize: 45,
-                    color: ['#fa755a','#3ecf8e','#82d3f4'],
-                    data: [{
-                        type: 'max',
-                        itemStyle: {color: ['#3ecf8e']},
-                        name: '最大值'
-                    }, {
-                        type: 'min',
-                        itemStyle: {color: ['#fa755a']},
-                        name: '最小值'
-                    }]
-                },
-                markLine: {
-                    itemStyle: {color: ['#ab47bc']},
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            }
-        ]
-    };
-
-    
-
-    let categoriesOption = {
-        title: {
-            text: '文章分类统计图',
-            top: -4,
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        series: [
-            {
-                name: '分类',
-                type: 'pie',
-                radius: '50%',
-                color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"博客搭建","value":1},{"name":"后端","value":1},{"name":"完整项目","value":1},{"name":"ai","value":1},{"name":"运维","value":1},{"name":"模型","value":1},{"name":"数学","value":1}],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-
-    
-
-    let tagsOption = {
-        title: {
-            text: 'TOP10 标签统计图',
-            top: -5,
-            x: 'center'
-        },
-        tooltip: {},
-        xAxis: [
-            {
-                type: 'category',
-                data: ["go","ubuntu","hexo","数据库","神经网络","pytorch","MongoDB","neo4j","线性代数","人工智能"]
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                type: 'bar',
-                color: ['#82d3f4'],
-                barWidth : 18,
-                data: [2,2,1,1,1,1,1,1,1,1],
-                markPoint: {
-                    symbolSize: 45,
-                    data: [{
-                        type: 'max',
-                        itemStyle: {color: ['#3ecf8e']},
-                        name: '最大值'
-                    }, {
-                        type: 'min',
-                        itemStyle: {color: ['#fa755a']},
-                        name: '最小值'
-                    }],
-                },
-                markLine: {
-                    itemStyle: {color: ['#ab47bc']},
-                    data: [
-                        {type: 'average', name: '平均值'}
-                    ]
-                }
-            }
-        ]
-    };
-
-    // render the charts
-    postsChart.setOption(postsOption);
-    categoriesChart.setOption(categoriesOption);
-    tagsChart.setOption(tagsOption);
-</script>
-
-
-                
-                
-<div class="my-projects">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="fas fa-gift"></i>&nbsp;&nbsp;我的项目
-    </div>
-    <div class="row">
-        
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="https://github.com/Penryn/homework" class="icon"
-                   style="background: linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)" target="_blank">
-                    <i class="fas fa-database"></i>
-                </a>
-                <div class="info-title">
-                    <a href="https://github.com/Penryn/homework" target="_blank">homework</a>
-                </div>
-                <div class="info-desc">精弘网络暑期大作业</div>
             </div>
         </div>
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="https://github.com/Penryn/TeamRegistrationSystem-Back" class="icon"
-                   style="background: linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)" target="_blank">
-                    <i class="fas fa-database"></i>
-                </a>
-                <div class="info-title">
-                    <a href="https://github.com/Penryn/TeamRegistrationSystem-Back" target="_blank">TeamRegistrationSystem-Back</a>
-                </div>
-                <div class="info-desc">精弘网络试用期作业</div>
-            </div>
-        </div>
-        
-        <div class="col s12 m6 l4" data-aos="fade-up">
-            <div class="info center-align">
-                <a href="https://github.com/Penryn/penryn.github.io" class="icon"
-                   style="background: linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)" target="_blank">
-                    <i class="fas fa-file-alt"></i>
-                </a>
-                <div class="info-title">
-                    <a href="https://github.com/Penryn/penryn.github.io" target="_blank">Blog-hexo</a>
-                </div>
-                <div class="info-desc">本博客</div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-                
-
-                
-                
-<div class="my-skills">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="fas fa-wrench"></i>&nbsp;&nbsp;我的技能
-    </div>
-    <div class="row">
-        
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 8%">
-                    <span>go</span>
-                </div>
-                <div class="skill-bar-percent">8%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 1%">
-                    <span>JavaScript</span>
-                </div>
-                <div class="skill-bar-percent">1%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 3%">
-                    <span>HTML5</span>
-                </div>
-                <div class="skill-bar-percent">3%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 1%">
-                    <span>CSS</span>
-                </div>
-                <div class="skill-bar-percent">1%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 3%">
-                    <span>c++</span>
-                </div>
-                <div class="skill-bar-percent">3%</div>
-            </div>
-        </div>
-        
-        
-        <div class="col s12 m6 l6" data-aos="fade-up">
-            <div class="skillbar">
-                <div class="skillbar-title"
-                     style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 0%">
-                    <span>其他</span>
-                </div>
-                <div class="skill-bar-percent">0%</div>
-            </div>
-        </div>
-        
-        
-    </div>
-
-    
-
-    
-    <div class="other-skills chip-container" data-aos="zoom-in-up">
-        <div class="sub-title center-align"><i class="fa fa-book"></i>&nbsp;&nbsp;其他技能</div>
-        <div class="tag-chips center-align">
-            
-            
-            <a href="/tags/hexo/">
-                <span class="chip center-align waves-effect waves-light chip-default">hexo</span>
-            </a>
-            
-            
-            
-            
-            
-            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                <span class="chip center-align waves-effect waves-light chip-default">数据库</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                <span class="chip center-align waves-effect waves-light chip-default">神经网络</span>
-            </a>
-            
-            
-            
-            <a href="/tags/pytorch/">
-                <span class="chip center-align waves-effect waves-light chip-default">pytorch</span>
-            </a>
-            
-            
-            
-            <a href="/tags/ubuntu/">
-                <span class="chip center-align waves-effect waves-light chip-default">ubuntu</span>
-            </a>
-            
-            
-            
-            <a href="/tags/MongoDB/">
-                <span class="chip center-align waves-effect waves-light chip-default">MongoDB</span>
-            </a>
-            
-            
-            
-            <a href="/tags/neo4j/">
-                <span class="chip center-align waves-effect waves-light chip-default">neo4j</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
-                <span class="chip center-align waves-effect waves-light chip-default">线性代数</span>
-            </a>
-            
-            
-            
-            <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
-                <span class="chip center-align waves-effect waves-light chip-default">人工智能</span>
-            </a>
-            
-            
-        </div>
-    </div>
-    
-
-</div>
-
-                
-
-                
-                
-<div id="myGallery" class="my-gallery">
-    <div class="title center-align" data-aos="zoom-in-up">
-        <i class="far fa-image"></i>&nbsp;&nbsp;相册
-    </div>
-    <div class="row">
-        
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/0.jpg">
-                <img src="/medias/featureimages/0.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/0.jpg">
-                <img src="/medias/featureimages/0.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/0.jpg">
-                <img src="/medias/featureimages/0.jpg" class="responsive-img">
-            </div>
-        </div>
-        
-        
     </div>
 </div>
 
 <script>
     $(function () {
-        let animateClass = 'animated pulse';
-        $('#myGallery .photo').hover(function () {
-            $(this).addClass(animateClass);
-        }, function () {
-            $(this).removeClass(animateClass);
-        });
+        $('.tabs').tabs();
     });
 </script>
 
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/04/26/neo4j-install/">
+                    <div class="card-image">
+                        
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="neo4j安装">
+                        
+                        <span class="card-title">neo4j安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Ubuntu安装neo4j
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%A8%A1%E5%9E%8B/" class="post-category">
+                                    模型
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
-                
-                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/neo4j/">
+                        <span class="chip bg-color">neo4j</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/04/26/mongodb-install/">
+                    <div class="card-image">
+                        
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="mongodb安装">
+                        
+                        <span class="card-title">mongodb安装</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Ubuntu安装mongoDB
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    运维
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/MongoDB/">
+                        <span class="chip bg-color">MongoDB</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
     </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
