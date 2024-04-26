@@ -6,7 +6,7 @@
   <link href="https://penryn.github.io/atom.xml" rel="self"/>
   
   <link href="https://penryn.github.io/"/>
-  <updated>2024-03-05T09:06:44.844Z</updated>
+  <updated>2024-04-26T09:49:50.602Z</updated>
   <id>https://penryn.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mongodb安装</title>
+    <link href="https://penryn.github.io/2024/04/26/mongodb-an-zhuang/"/>
+    <id>https://penryn.github.io/2024/04/26/mongodb-an-zhuang/</id>
+    <published>2024-04-26T09:24:13.000Z</published>
+    <updated>2024-04-26T09:49:50.602Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;问卷系统要求用MongoDB存放答卷数据，因此我在我云服务器上安装了MongoDB&lt;/p&gt;
+&lt;p&gt;这是官方的&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="运维" scheme="https://penryn.github.io/categories/%E8%BF%90%E7%BB%B4/"/>
+    
+    
+    <category term="ubuntu" scheme="https://penryn.github.io/tags/ubuntu/"/>
+    
+    <category term="MongoDB" scheme="https://penryn.github.io/tags/MongoDB/"/>
+    
+  </entry>
   
   <entry>
     <title>寒软项目总结</title>

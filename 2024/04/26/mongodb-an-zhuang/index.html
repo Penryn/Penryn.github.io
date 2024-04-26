@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="gorm的多种关联方式, phlin&#39;s blog">
-    <meta name="description" content="gorm关联方法">
+    <meta name="keywords" content="mongodb安装, phlin&#39;s blog">
+    <meta name="description" content="Ubuntu安装mongoDB">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>gorm的多种关联方式 | phlin&#39;s blog</title>
+    <title>mongodb安装 | phlin&#39;s blog</title>
     <link rel="icon" type="image/png" href="/1.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
@@ -280,7 +280,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">gorm的多种关联方式</h1>
+                    <h1 class="description center-align post-title">mongodb安装</h1>
                 </div>
             </div>
         </div>
@@ -304,12 +304,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/go/">
-                                <span class="chip bg-color">go</span>
+                            <a href="/tags/ubuntu/">
+                                <span class="chip bg-color">ubuntu</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/MongoDB/">
+                                <span class="chip bg-color">MongoDB</span>
                             </a>
                         
                     </div>
@@ -320,8 +320,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                后端
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                运维
                             </a>
                         
                     </div>
@@ -333,28 +333,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-11-23
+                    2024-04-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-01-24
+                    2024-04-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    254
+                    711
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -400,49 +400,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><a target="_blank" rel="noopener" href="https://gorm.io/zh_CN/docs/belongs_to.html">Gorm官网</a>上将这个分成了belongs to，has one，has many，many to many这些关系，今天笔者就简单分成这三种关系（一对一，一对多和多对多）来逐一讲解。</p>
-<hr>
-<h2 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h2><p>以笔者写的一份项目为例（一个用户对应一个用户信息）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package models</span><br><span class="line"></span><br><span class="line">type User struct {</span><br><span class="line">	UserID     int      `json:"-" gorm:"primaryKey"`</span><br><span class="line">	Name       string   `json:"name"`</span><br><span class="line">	Password   []byte   `json:"-"`</span><br><span class="line">	Userinfo   Userinfo `json:"-"`</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">type Userinfo struct {</span><br><span class="line">	ID       int    `json:"-" `</span><br><span class="line">	UserID   int    `json:"-"`</span><br><span class="line">	Name     string `json:"name"`</span><br><span class="line">	Phone    string `json:"phone"`</span><br><span class="line">	Email    string `json:"email"`</span><br><span class="line">	Birthday string `json:"birthday"`</span><br><span class="line">	Address  string `json:"address"`</span><br><span class="line">	Motto    string `json:"motto"`</span><br><span class="line">	Avatar   string `json:"avatar"`</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<ol>
-<li>增</li>
-</ol>
-<ul>
-<li><p>创建用户并携带相关个人信息</p>
-</li>
-<li><p>新建用户并关联已有信息</p>
-</li>
-<li><p>新建个人信息并关联已有用户</p>
-</li>
-<li><p>已有用户关联已有信息</p>
-</li>
-</ul>
-<ol start="2">
-<li>删</li>
-</ol>
-<ul>
-<li><p>清除用户与信息的关系</p>
-</li>
-<li><p>删除用户并连带信息一起删除</p>
-</li>
-<li><p>仅删除信息保留用户</p>
-</li>
-<li><p>仅删除用户保留信息</p>
-</li>
-</ul>
-<ol start="3">
-<li>改</li>
-</ol>
-<ul>
-<li><p>直接通过信息表修改内容</p>
-</li>
-<li><p>通过用户表修改内容</p>
-</li>
-</ul>
-<ol start="4">
-<li>查</li>
-</ol>
-<p>（等笔者找个时间补上）</p>
+                <p>问卷系统要求用MongoDB存放答卷数据，因此我在我云服务器上安装了MongoDB</p>
+<p>这是官方的<a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/#std-label-install-mdb-community-ubuntu">安装教程</a></p>
+<p>下面简单介绍我的安装过程</p>
+<p>我的云服务器系统：ubuntu22.04 LTS</p>
+<p>先运行下面这行代码检查服务器系统是否是ubuntu22.04 LTS或ubuntu20.04 LTS</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/lsb-release</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="导入包管理系统使用的公钥"><a href="#导入包管理系统使用的公钥" class="headerlink" title="导入包管理系统使用的公钥"></a>导入包管理系统使用的公钥</h3><p>从终端安装，gnupg如果curl它们尚不可用：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnupg curl</span><br></pre></td></tr></tbody></table></figure>
+<p>要导入 MongoDB 公共 GPG 密钥，请运行以下命令：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \</span><br><span class="line">   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \</span><br><span class="line">   --dearmor</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="为-MongoDB-创建列表文件"><a href="#为-MongoDB-创建列表文件" class="headerlink" title="为 MongoDB 创建列表文件"></a>为 MongoDB 创建列表文件</h3><p>/etc/apt/sources.list.d/mongodb-org-7.0.list为您的 Ubuntu 版本创建列表文件 。</p>
+<p>22.04</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list</span><br></pre></td></tr></tbody></table></figure>
+<p>20.04</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list</span><br></pre></td></tr></tbody></table></figure>
+
+
+<h3 id="重新加载本地包数据库"><a href="#重新加载本地包数据库" class="headerlink" title="重新加载本地包数据库"></a>重新加载本地包数据库</h3><p>发出以下命令重新加载本地包数据库：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="安装-MongoDB-包"><a href="#安装-MongoDB-包" class="headerlink" title="安装 MongoDB 包"></a>安装 MongoDB 包</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y mongodb-org</span><br></pre></td></tr></tbody></table></figure>
+
+<p>这样我们就安装好了数据库</p>
+<p>接下来我们检查一下是否安装成功，并启动一下</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start mongod</span><br></pre></td></tr></tbody></table></figure>
+<p>如果您在启动时收到类似以下内容的错误 mongod：<br>Failed to start mongod.service: Unit mongod.service not found.</p>
+<p>首先运行以下命令：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></tbody></table></figure>
+
+<p>验证 MongoDB 是否已成功启动</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status mongod</span><br></pre></td></tr></tbody></table></figure>
+
+<p>其他操作</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable mongod</span><br><span class="line">sudo systemctl stop mongod</span><br><span class="line">sudo systemctl restart mongod</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h3><p>MongoDB好像是可以直接免用户登录的，我们先设置一个用户供我们外部数据库连接</p>
+<p>先启动打开数据库</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongosh</span><br></pre></td></tr></tbody></table></figure>
+
+<p>然后输入,user和pwd可根据自己更改</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "userAdminAnyDatabase", db: "admin" },</span><br><span class="line">      { role: "readWriteAnyDatabase", db: "admin" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>如果返回结果是 { ok: 1 }，那么表示用户创建成功。这意味着 new_root 用户已经被成功创建，并且被赋予了该用户具有对数据库的读取和修改权限。</p>
+<p>我们可以去查看一下是否创建成功 </p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use admin</span><br><span class="line">db.getUsers()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>我们可以看到上面出现了new_root这个用户了</p>
+<h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p>MongoDB默认是只能本地连接<br>所以我们要去配置文件更改一下，MongoDB的配置文件存在（ /etc/mongod.conf）</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mongod.conf</span><br></pre></td></tr></tbody></table></figure>
+<p>找到 bindIp 配置项，并将其值改为 0.0.0.0，表示允许来自任何 IP 地址的连接：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bindIp: 0.0.0.0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>保存并关闭文件，然后重新启动 MongoDB 服务：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart mongodb</span><br></pre></td></tr></tbody></table></figure>
+
+<p>最后要记得到云服务器的安全组开放27017端口</p>
+<p>以上就可以安装好了</p>
 
                 
             </div>
@@ -469,7 +484,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://penryn.github.io/2023/11/23/gorm-association/">https://penryn.github.io/2023/11/23/gorm-association/</a>
+                    <a href="https://penryn.github.io/2024/04/26/mongodb-an-zhuang/">https://penryn.github.io/2024/04/26/mongodb-an-zhuang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -507,12 +522,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/go/">
-                                    <span class="chip bg-color">go</span>
+                                <a href="/tags/ubuntu/">
+                                    <span class="chip bg-color">ubuntu</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/MongoDB/">
+                                    <span class="chip bg-color">MongoDB</span>
                                 </a>
                             
                         </div>
@@ -591,49 +606,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/01/24/linear-transformation/">
+                <a href="/2024/04/26/mongodb-an-zhuang/">
                     <div class="card-image">
                         
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="矩阵与线性变换">
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="mongodb安装">
                         
-                        <span class="card-title">矩阵与线性变换</span>
+                        <span class="card-title">mongodb安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            矩阵的理解和矩阵向量乘法的几何理解
+                            Ubuntu安装mongoDB
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-01-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
-                                    数学
+                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
+                                    运维
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
-                        <span class="chip bg-color">线性代数</span>
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">
-                        <span class="chip bg-color">人工智能</span>
+                    <a href="/tags/MongoDB/">
+                        <span class="chip bg-color">MongoDB</span>
                     </a>
                     
                 </div>
@@ -647,30 +664,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2023/11/11/createblog/">
+                <a href="/2024/03/05/hr-summary/">
                     <div class="card-image">
                         
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="手把手教你搭建属于你自己的hexo博客，并布置在github page上">
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="寒软项目总结">
                         
-                        <span class="card-title">手把手教你搭建属于你自己的hexo博客，并布置在github page上</span>
+                        <span class="card-title">寒软项目总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Hexo 是一个快速、简洁且高效的博客框架。
+                            寒软总结
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                    博客搭建
+                            <a href="/categories/%E5%AE%8C%E6%95%B4%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    完整项目
                                 </a>
                             
                             
@@ -680,8 +697,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/go/">
+                        <span class="chip bg-color">go</span>
                     </a>
                     
                 </div>
