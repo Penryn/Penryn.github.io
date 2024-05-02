@@ -6,7 +6,7 @@
   <link href="https://penryn.github.io/atom.xml" rel="self"/>
   
   <link href="https://penryn.github.io/"/>
-  <updated>2024-04-26T10:10:55.111Z</updated>
+  <updated>2024-05-02T06:17:45.108Z</updated>
   <id>https://penryn.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>go测试（基于testing基本库）</title>
+    <link href="https://penryn.github.io/2024/05/02/go-testing/"/>
+    <id>https://penryn.github.io/2024/05/02/go-testing/</id>
+    <published>2024-05-02T04:38:15.000Z</published>
+    <updated>2024-05-02T06:17:45.108Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;老登让我研究一下后端测试，看看MongoDB读写操作的性能，遂开始研究go的testing基本库&lt;/p&gt;
+&lt;p&gt;在testing的测试有这三种类型——单元测试，基准(性能)测试，示例测试&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;格式</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://penryn.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="go" scheme="https://penryn.github.io/tags/go/"/>
+    
+    <category term="testing" scheme="https://penryn.github.io/tags/testing/"/>
+    
+    <category term="测试" scheme="https://penryn.github.io/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>neo4j安装</title>
@@ -49,7 +84,7 @@
     <link href="https://penryn.github.io/2024/04/26/mongodb-install/"/>
     <id>https://penryn.github.io/2024/04/26/mongodb-install/</id>
     <published>2024-04-26T09:24:13.000Z</published>
-    <updated>2024-04-26T09:49:50.602Z</updated>
+    <updated>2024-04-29T06:54:27.009Z</updated>
     
     
       

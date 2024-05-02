@@ -340,14 +340,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-26
+                    2024-04-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    711
+                    759
                 </div>
                 
 
@@ -439,24 +439,30 @@
 
 <h3 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h3><p>MongoDB好像是可以直接免用户登录的，我们先设置一个用户供我们外部数据库连接</p>
 <p>先启动打开数据库</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongosh</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mongosh</span><br><span class="line">use admin</span><br></pre></td></tr></tbody></table></figure>
 
 <p>然后输入,user和pwd可根据自己更改</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "userAdminAnyDatabase", db: "admin" },</span><br><span class="line">      { role: "readWriteAnyDatabase", db: "admin" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "userAdminAnyDatabase", db: "admin" },</span><br><span class="line">      { role: "readWriteAnyDatabase", db: "admin" },</span><br><span class="line">      { role: "readWrite", db: "QA" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p>如果返回结果是 { ok: 1 }，那么表示用户创建成功。这意味着 new_root 用户已经被成功创建，并且被赋予了该用户具有对数据库的读取和修改权限。</p>
 <p>我们可以去查看一下是否创建成功 </p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use admin</span><br><span class="line">db.getUsers()</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getUsers()</span><br></pre></td></tr></tbody></table></figure>
 
+<p>然后在QA也是</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">use QA</span><br><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "readWrite", db: "QA" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
 <p>我们可以看到上面出现了new_root这个用户了</p>
 <h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p>MongoDB默认是只能本地连接<br>所以我们要去配置文件更改一下，MongoDB的配置文件存在（ /etc/mongod.conf）</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mongod.conf</span><br></pre></td></tr></tbody></table></figure>
 <p>找到 bindIp 配置项，并将其值改为 0.0.0.0，表示允许来自任何 IP 地址的连接：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bindIp: 0.0.0.0</span><br></pre></td></tr></tbody></table></figure>
-
+<p>找到security:<br>去除#，并加上</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">authorization: enabled</span><br></pre></td></tr></tbody></table></figure>
 <p>保存并关闭文件，然后重新启动 MongoDB 服务：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart mongodb</span><br></pre></td></tr></tbody></table></figure>
 
 <p>最后要记得到云服务器的安全组开放27017端口</p>
+<p>之后进入就要</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongosh -u new_root -p</span><br></pre></td></tr></tbody></table></figure>
+<p>然后输入密码</p>
 <p>以上就可以安装好了</p>
 
                 
@@ -894,7 +900,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.3k</span>
+                        class="white-color">10.5k</span>
             
             
             
