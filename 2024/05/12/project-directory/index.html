@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="mongodb安装, phlin&#39;s blog">
-    <meta name="description" content="Ubuntu安装mongoDB">
+    <meta name="keywords" content="go的标准项目布局, phlin&#39;s blog">
+    <meta name="description" content="go的目录结构介绍">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>mongodb安装 | phlin&#39;s blog</title>
+    <title>go的标准项目布局 | phlin&#39;s blog</title>
     <link rel="icon" type="image/png" href="/1.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
@@ -280,7 +280,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">mongodb安装</h1>
+                    <h1 class="description center-align post-title">go的标准项目布局</h1>
                 </div>
             </div>
         </div>
@@ -304,12 +304,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ubuntu/">
-                                <span class="chip bg-color">ubuntu</span>
-                            </a>
-                        
-                            <a href="/tags/MongoDB/">
-                                <span class="chip bg-color">MongoDB</span>
+                            <a href="/tags/go/">
+                                <span class="chip bg-color">go</span>
                             </a>
                         
                     </div>
@@ -320,8 +316,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                运维
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
                             </a>
                         
                     </div>
@@ -333,28 +329,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-04-26
+                    2024-05-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-29
+                    2024-05-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    759
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -400,70 +396,28 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>问卷系统要求用MongoDB存放答卷数据，因此我在我云服务器上安装了MongoDB</p>
-<p>这是官方的<a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/#std-label-install-mdb-community-ubuntu">安装教程</a></p>
-<p>下面简单介绍我的安装过程</p>
-<p>我的云服务器系统：ubuntu22.04 LTS</p>
-<p>先运行下面这行代码检查服务器系统是否是ubuntu22.04 LTS或ubuntu20.04 LTS</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/lsb-release</span><br></pre></td></tr></tbody></table></figure>
+                <p>因为笔者一开始是在精弘暑期课入门的go，因此主要学习的还是部门项目微精弘的代码目录结构，所以对go的标准目录结构不是很了解，特此出一篇文章来捋一下go现在比较规范的目录结构，以此来学习。</p>
+<h3 id="目录规范"><a href="#目录规范" class="headerlink" title="目录规范"></a>目录规范</h3><p>虽然每个项目的目录结构并不是有规定模板的，也有很多优秀的项目并不是常规的项目布局，还是要依据项目类型、大小及灵活程度做调整，但一定要保证结构清晰！<br>一般要求：</p>
+<ul>
+<li>命名清晰：目录命名要清晰、简介，不宜过长或过短。目录名要求能清晰表达出该目录所要实现的功能，在清晰表达的基础上最好用单数，避免单复混用的情况。</li>
+<li>功能明确：一个目录所要实现的功能应该是明确的、并且在整个项目目录中具有高辨识度。</li>
+<li>全面性：目录结构应该尽可能全面地包含研发过程中需要的功能，例如文档、脚本、源码管理、API 实现、工具包、第三方包、测试、编译产物等。</li>
+<li>可预测性：项目规模一般是从小到大的，所以一个好的目录结构应该能够在项目变大时，仍然保持之前的目录结构。</li>
+<li>可扩展性：每个目录下存放了同类的功能，在项目变大时，这些目录应该可以存放更多同类功能</li>
+</ul>
+<h3 id="目录类型"><a href="#目录类型" class="headerlink" title="目录类型"></a>目录类型</h3><p>根据项目的功能，目录结构可以分为两种：</p>
+<ul>
+<li>平铺式目录结构</li>
+<li>结构化目录结构</li>
+</ul>
+<h3 id="平铺式目录结构"><a href="#平铺式目录结构" class="headerlink" title="平铺式目录结构"></a>平铺式目录结构</h3><p>当一个项目是体量较小或是一个工具库时，适合使用平铺式目录结构。项目的代码都存放在项目的根目录下，可以减少项目引用路径的长度。例如 github.com/golang/glog：</p>
+<h3 id="结构化目录结构"><a href="#结构化目录结构" class="headerlink" title="结构化目录结构"></a>结构化目录结构</h3><p>当前 Go 社区比较推荐的结构化目录结构是 <a target="_blank" rel="noopener" href="https://github.com/golang-standards/project-layout/blob/master/README_zh.md">project-layout</a> 。虽然它并不是官方和社区的规范，但因为组织方式比较合理，被很多 Go 开发人员接受并推荐，因此我现在先以这个作为规范。</p>
+<h4 id="微精弘目录架构"><a href="#微精弘目录架构" class="headerlink" title="微精弘目录架构"></a>微精弘目录架构</h4><p>在讲这个新的目录结构前，我先来聊聊wjh的目录结构</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">├── app </span><br><span class="line">│&nbsp;&nbsp; ├── apiException           //定义统一的错误码</span><br><span class="line">│&nbsp;&nbsp; ├── config                 //从数据库获取配置信息</span><br><span class="line">│&nbsp;&nbsp; ├── controllers            // 控制器，主要包括了处理函数</span><br><span class="line">│&nbsp;&nbsp; ├── midwares               // 中间件</span><br><span class="line">│&nbsp;&nbsp; ├── models                 // 模型</span><br><span class="line">│&nbsp;&nbsp; ├── services               // 业务逻辑，与数据库进行交互</span><br><span class="line">│&nbsp;&nbsp; └── utils                  // 一些封装好的工具</span><br><span class="line">├── config                     // </span><br><span class="line">│&nbsp;&nbsp; ├── api                    //一些api常量的定义</span><br><span class="line">│&nbsp;&nbsp; ├── config                 //对viper的初始化</span><br><span class="line">│&nbsp;&nbsp; ├── database               //对数据库（如mysql或mongodb）的初始化和自动建</span><br><span class="line">│&nbsp;&nbsp; ├── router                 //路由的定义</span><br><span class="line">│&nbsp;&nbsp; ├── redis                  //redis的配置和初始化</span><br><span class="line">│&nbsp;&nbsp; ├── session                //session的配置和初始化</span><br><span class="line">│&nbsp;&nbsp; └── wechat                 //微信配置和初始化</span><br><span class="line">├── dockerfile                 //docker制作文件</span><br><span class="line">├── docker-compose.yml         //Docker Compose 工具使用的配置文件</span><br><span class="line">├── go.mod                     //用于管理项目的依赖关系</span><br><span class="line">├── go.sum                     //为了确保在构建项目时，使用的确切依赖项版本与最初确定的版本相匹配</span><br><span class="line">├── main.go                    //主入口文件</span><br><span class="line">├── Makefile                   //如何构建和编译项目的文本工具</span><br></pre></td></tr></tbody></table></figure>
+<p>yysy，这个目录结构还是比较简单且清晰的，易于新手理解</p>
+<h4 id="project-layout目录架构"><a href="#project-layout目录架构" class="headerlink" title="project-layout目录架构"></a>project-layout目录架构</h4><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">├── api                       # 存放不同类型的 API 定义文件</span><br><span class="line">├── cmd                       # cmd 下可以包含多个组件目录，组件目录下存放各个组件的 main 包</span><br><span class="line">├── chart                     # 存放 Helm Chart 文件，用于部署应用程序到 Kubernetes 集群(可选)</span><br><span class="line">├── conf                      # 项目部署的配置文件</span><br><span class="line">├── docs                      # 存放项目文档，包括开发者文档和使用指南，通常以多语言分组存放</span><br><span class="line">│   ├── dev</span><br><span class="line">│   │   ├── en-US</span><br><span class="line">│   │   └── zh-CN</span><br><span class="line">│   ├── guide</span><br><span class="line">│   │   ├── en-US</span><br><span class="line">│   │   └── zh-CN</span><br><span class="line">│   └── README.md</span><br><span class="line">├── examples                  # 项目使用示例</span><br><span class="line">├── go.mod</span><br><span class="line">├── go.sum</span><br><span class="line">├── hack                      # 项目构建，持续集成相关的文件           </span><br><span class="line">│   ├── include               # 存放 makefile 文件，实现入口 Makefile 文件中的各个功能</span><br><span class="line">│   ├── scripts               # 存放 Shell 脚本</span><br><span class="line">│   └── docker                # 包含多个组件目录，组件目录下存放各个组件的 Dockerfile，Docker Compose 文件等</span><br><span class="line">│       └── apiserver</span><br><span class="line">│           └── Dockerfile</span><br><span class="line">│    </span><br><span class="line">├── internal                  # internal 下可以包含多个组件目录，组件目录下存放各个组件的业务代码</span><br><span class="line">│   ├── apiserver             # 组件的业务逻辑代码</span><br><span class="line">│   │   ├── apiserver.go      # 组件应用的入口文件</span><br><span class="line">│   │   ├── config            # 根据 options 创建组件应用的配置</span><br><span class="line">│   │   ├── middleware        # 中间件</span><br><span class="line">│   │   ├── controller        # HTTP API 的实现，包含请求参数的解析、校验、返回响应，具体的业务逻辑在 service 目录下</span><br><span class="line">│   │   ├── service           # 具体的业务逻辑</span><br><span class="line">│   │   ├── store             # 数据库操作的代码，可以创建多个目录，对应不同的数据库</span><br><span class="line">│   │   │   ├── mysql         </span><br><span class="line">│   │   │   │   ├── mysql.go</span><br><span class="line">│   │   │   └── fake          # 存放项目中的一些测试用的“假”实现或者模拟数据</span><br><span class="line">│   │   │</span><br><span class="line">│   ├── pkg                   # 仅项目内可用的工具包</span><br><span class="line">│   │   ├── code              # 项目内共享的错误码</span><br><span class="line">│   │   ├── model</span><br><span class="line">│   │   └── util</span><br><span class="line">├── LICENSE</span><br><span class="line">├── Makefile                  # Makefile 入口文件</span><br><span class="line">├── pkg                       # 全局可用的工具包，可以被外部引用</span><br><span class="line">│   └── util</span><br><span class="line">├── README.md</span><br><span class="line">├── vendor                    #这个目录用于存储项目的依赖包，但由于现今Go项目都是使用go module进行依赖管理，因此这个目录是可省略的。</span><br><span class="line">├── deployments               #IaaS，PaaS，系统和容器编排部署配置和模板（docker-compose，kubernetes/helm，mesos，terraform，bosh）</span><br><span class="line">├── test                      # 存放测试代码，随时根据需要构建/test目录。对于较大的项目，有一个数据子目录更好一些。请注意，Go 还将忽略以“.”或“_”开头的目录或文件</span><br><span class="line">│   ├── testdata              # 测试数据</span><br><span class="line">│   └── e2e                   # e2e 测试代码</span><br><span class="line">├── web                       #前端文件存放目录</span><br><span class="line">├── Makefile                  #如何构建和编译项目的文本工具</span><br></pre></td></tr></tbody></table></figure>
 
-<h3 id="导入包管理系统使用的公钥"><a href="#导入包管理系统使用的公钥" class="headerlink" title="导入包管理系统使用的公钥"></a>导入包管理系统使用的公钥</h3><p>从终端安装，gnupg如果curl它们尚不可用：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnupg curl</span><br></pre></td></tr></tbody></table></figure>
-<p>要导入 MongoDB 公共 GPG 密钥，请运行以下命令：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \</span><br><span class="line">   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \</span><br><span class="line">   --dearmor</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="为-MongoDB-创建列表文件"><a href="#为-MongoDB-创建列表文件" class="headerlink" title="为 MongoDB 创建列表文件"></a>为 MongoDB 创建列表文件</h3><p>/etc/apt/sources.list.d/mongodb-org-7.0.list为您的 Ubuntu 版本创建列表文件 。</p>
-<p>22.04</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list</span><br></pre></td></tr></tbody></table></figure>
-<p>20.04</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list</span><br></pre></td></tr></tbody></table></figure>
-
-
-<h3 id="重新加载本地包数据库"><a href="#重新加载本地包数据库" class="headerlink" title="重新加载本地包数据库"></a>重新加载本地包数据库</h3><p>发出以下命令重新加载本地包数据库：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="安装-MongoDB-包"><a href="#安装-MongoDB-包" class="headerlink" title="安装 MongoDB 包"></a>安装 MongoDB 包</h3><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y mongodb-org</span><br></pre></td></tr></tbody></table></figure>
-
-<p>这样我们就安装好了数据库</p>
-<p>接下来我们检查一下是否安装成功，并启动一下</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start mongod</span><br></pre></td></tr></tbody></table></figure>
-<p>如果您在启动时收到类似以下内容的错误 mongod：<br>Failed to start mongod.service: Unit mongod.service not found.</p>
-<p>首先运行以下命令：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br></pre></td></tr></tbody></table></figure>
-
-<p>验证 MongoDB 是否已成功启动</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status mongod</span><br></pre></td></tr></tbody></table></figure>
-
-<p>其他操作</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable mongod</span><br><span class="line">sudo systemctl stop mongod</span><br><span class="line">sudo systemctl restart mongod</span><br></pre></td></tr></tbody></table></figure>
-
-<h3 id="新增用户"><a href="#新增用户" class="headerlink" title="新增用户"></a>新增用户</h3><p>MongoDB好像是可以直接免用户登录的，我们先设置一个用户供我们外部数据库连接</p>
-<p>先启动打开数据库</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mongosh</span><br><span class="line">use admin</span><br></pre></td></tr></tbody></table></figure>
-
-<p>然后输入,user和pwd可根据自己更改</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "userAdminAnyDatabase", db: "admin" },</span><br><span class="line">      { role: "readWriteAnyDatabase", db: "admin" },</span><br><span class="line">      { role: "readWrite", db: "QA" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>如果返回结果是 { ok: 1 }，那么表示用户创建成功。这意味着 new_root 用户已经被成功创建，并且被赋予了该用户具有对数据库的读取和修改权限。</p>
-<p>我们可以去查看一下是否创建成功 </p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getUsers()</span><br></pre></td></tr></tbody></table></figure>
-
-<p>然后在QA也是</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">use QA</span><br><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "readWrite", db: "QA" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
-<p>我们可以看到上面出现了new_root这个用户了</p>
-<h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p>MongoDB默认是只能本地连接<br>所以我们要去配置文件更改一下，MongoDB的配置文件存在（ /etc/mongod.conf）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mongod.conf</span><br></pre></td></tr></tbody></table></figure>
-<p>找到 bindIp 配置项，并将其值改为 0.0.0.0，表示允许来自任何 IP 地址的连接：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bindIp: 0.0.0.0</span><br></pre></td></tr></tbody></table></figure>
-<p>找到security:<br>去除#，并加上</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">authorization: enabled</span><br></pre></td></tr></tbody></table></figure>
-<p>保存并关闭文件，然后重新启动 MongoDB 服务：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart mongodb</span><br></pre></td></tr></tbody></table></figure>
-
-<p>最后要记得到云服务器的安全组开放27017端口</p>
-<p>之后进入就要</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongosh -u new_root -p</span><br></pre></td></tr></tbody></table></figure>
-<p>然后输入密码</p>
-<p>以上就可以安装好了</p>
+<p>经过多方参考，最终形成这样的一个目录，好的目录结构，总能让人眼前一亮，舒舒服服的看下去。项目的目录结构并没有一个强制性规范，我们应该不断看优秀的项目的结构目录，不断优化自己的架构意识，使得自己项目的扩展性加大的同时还能保证清晰。加油(ง •_•)ง</p>
 
                 
             </div>
@@ -490,7 +444,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://penryn.github.io/2024/04/26/mongodb-install/">https://penryn.github.io/2024/04/26/mongodb-install/</a>
+                    <a href="https://penryn.github.io/2024/05/12/project-directory/">https://penryn.github.io/2024/05/12/project-directory/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -528,12 +482,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ubuntu/">
-                                    <span class="chip bg-color">ubuntu</span>
-                                </a>
-                            
-                                <a href="/tags/MongoDB/">
-                                    <span class="chip bg-color">MongoDB</span>
+                                <a href="/tags/go/">
+                                    <span class="chip bg-color">go</span>
                                 </a>
                             
                         </div>
@@ -612,49 +562,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2024/04/26/neo4j-install/">
+                <a href="/2024/05/12/project-directory/">
                     <div class="card-image">
                         
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="neo4j安装">
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="go的标准项目布局">
                         
-                        <span class="card-title">neo4j安装</span>
+                        <span class="card-title">go的标准项目布局</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Ubuntu安装neo4j
+                            go的目录结构介绍
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-04-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%A8%A1%E5%9E%8B/" class="post-category">
-                                    模型
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ubuntu/">
-                        <span class="chip bg-color">ubuntu</span>
-                    </a>
-                    
-                    <a href="/tags/neo4j/">
-                        <span class="chip bg-color">neo4j</span>
+                    <a href="/tags/go/">
+                        <span class="chip bg-color">go</span>
                     </a>
                     
                 </div>
@@ -668,30 +616,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2024/03/05/hr-summary/">
+                <a href="/2024/05/02/go-testing/">
                     <div class="card-image">
                         
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="寒软项目总结">
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="go测试（基于testing基本库）">
                         
-                        <span class="card-title">寒软项目总结</span>
+                        <span class="card-title">go测试（基于testing基本库）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            寒软总结
+                            go的testing基本库的使用
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%8C%E6%95%B4%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    完整项目
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
                                 </a>
                             
                             
@@ -703,6 +651,14 @@
                     
                     <a href="/tags/go/">
                         <span class="chip bg-color">go</span>
+                    </a>
+                    
+                    <a href="/tags/testing/">
+                        <span class="chip bg-color">testing</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B5%8B%E8%AF%95/">
+                        <span class="chip bg-color">测试</span>
                     </a>
                     
                 </div>
