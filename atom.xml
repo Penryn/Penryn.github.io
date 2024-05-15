@@ -6,7 +6,7 @@
   <link href="https://penryn.github.io/atom.xml" rel="self"/>
   
   <link href="https://penryn.github.io/"/>
-  <updated>2024-05-13T08:51:30.302Z</updated>
+  <updated>2024-05-15T10:06:03.984Z</updated>
   <id>https://penryn.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全局错误处理和日志的简单设置</title>
+    <link href="https://penryn.github.io/2024/05/15/errhandler/"/>
+    <id>https://penryn.github.io/2024/05/15/errhandler/</id>
+    <published>2024-05-15T07:48:34.000Z</published>
+    <updated>2024-05-15T10:06:03.984Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;因为，前端总是因为各种稀奇原因报服务错误，而gin本身的日志信息及其简洁，因此&lt;del&gt;老登&lt;/del&gt;部长让我写一个日志系统，在写日志系统前，应该先了解一下全局错误处理，这样可方便我们对错误信息进行处理，以便形成一个日志。&lt;/p&gt;
+&lt;h3 id=&quot;全局错误处理&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="后端" scheme="https://penryn.github.io/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+    <category term="go" scheme="https://penryn.github.io/tags/go/"/>
+    
+    <category term="中间件" scheme="https://penryn.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+    <category term="日志" scheme="https://penryn.github.io/tags/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>go的标准项目布局</title>
