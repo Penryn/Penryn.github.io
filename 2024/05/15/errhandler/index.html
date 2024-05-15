@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="全局错误处理和日志的简单设置, phlin&#39;s blog">
+    <meta name="keywords" content="全局错误处理和日志的简单使用, phlin&#39;s blog">
     <meta name="description" content="go的全局错误处理中间件和zap第三方日志库的使用">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>全局错误处理和日志的简单设置 | phlin&#39;s blog</title>
+    <title>全局错误处理和日志的简单使用 | phlin&#39;s blog</title>
     <link rel="icon" type="image/png" href="/1.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
@@ -53,9 +53,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.0.0">
+<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="phlin's blog" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="phlin's blog" type="application/atom+xml">
 </head>
 
 
@@ -280,7 +280,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">全局错误处理和日志的简单设置</h1>
+                    <h1 class="description center-align post-title">全局错误处理和日志的简单使用</h1>
                 </div>
             </div>
         </div>
@@ -351,7 +351,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.7k
                 </div>
                 
 
@@ -458,6 +458,7 @@
 <p>然后，运行一下看看结果，发现失败了，什么原因呢，好像只把Err的副本传过去了，所以我们改成引用试试。</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.Error(&amp;gin.Error{Err: err, Type: gin.ErrorTypeBind})</span><br></pre></td></tr></tbody></table></figure>
 <p>最后不出所料的成功了。</p>
+<p><del>因为日志分级和日志自定义还没有什么具体的实现场景，先这样了。</del></p>
 <h3 id="panic异常处理"><a href="#panic异常处理" class="headerlink" title="panic异常处理"></a>panic异常处理</h3><p>有时候我们还会遇到比如数组越界，数据库异常时产生panic报错，但我们肯定不能直接让服务崩掉，所以也可以在这个中间件用recover()处理并用日志记录下来。</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">defer func() {</span><br><span class="line">			if r := recover(); r != nil {</span><br><span class="line">				// Handle panic and log the error</span><br><span class="line">				stack := debug.Stack()</span><br><span class="line">				logger.Error("Panic recovered",</span><br><span class="line">					zap.String("path", c.Request.URL.Path),</span><br><span class="line">					zap.String("method", c.Request.Method),</span><br><span class="line">					zap.Any("panic", r),</span><br><span class="line">					zap.ByteString("stacktrace", stack),</span><br><span class="line">				)</span><br><span class="line"></span><br><span class="line">				c.JSON(http.StatusInternalServerError, gin.H{</span><br><span class="line">					"code":  http.StatusInternalServerError,</span><br><span class="line">					"msg": apiException.ServerError.Msg,</span><br><span class="line">				})</span><br><span class="line">				c.Abort()</span><br><span class="line">			}</span><br><span class="line">		}()</span><br></pre></td></tr></tbody></table></figure>
 
@@ -622,9 +623,9 @@
                 <a href="/2024/05/15/errhandler/">
                     <div class="card-image">
                         
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="全局错误处理和日志的简单设置">
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="全局错误处理和日志的简单使用">
                         
-                        <span class="card-title">全局错误处理和日志的简单设置</span>
+                        <span class="card-title">全局错误处理和日志的简单使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
