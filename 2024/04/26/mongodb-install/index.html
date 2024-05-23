@@ -53,9 +53,9 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="phlin's blog" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 7.0.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="phlin's blog" type="application/atom+xml">
 </head>
 
 
@@ -340,14 +340,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-04-29
+                    2024-05-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    759
+                    771
                 </div>
                 
 
@@ -442,13 +442,13 @@
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mongosh</span><br><span class="line">use admin</span><br></pre></td></tr></tbody></table></figure>
 
 <p>然后输入,user和pwd可根据自己更改</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "userAdminAnyDatabase", db: "admin" },</span><br><span class="line">      { role: "readWriteAnyDatabase", db: "admin" },</span><br><span class="line">      { role: "readWrite", db: "QA" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//这个可以用例如datagrip去连接</span><br><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "admin",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "userAdminAnyDatabase", db: "admin" },</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
 <p>如果返回结果是 { ok: 1 }，那么表示用户创建成功。这意味着 new_root 用户已经被成功创建，并且被赋予了该用户具有对数据库的读取和修改权限。</p>
 <p>我们可以去查看一下是否创建成功 </p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.getUsers()</span><br></pre></td></tr></tbody></table></figure>
 
 <p>然后在QA也是</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">use QA</span><br><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "readWrite", db: "QA" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//这个用程序去连接</span><br><span class="line">use qa</span><br><span class="line">db.createUser(</span><br><span class="line">  {</span><br><span class="line">    user: "new_root",</span><br><span class="line">    pwd: "abc123",</span><br><span class="line">    roles: [</span><br><span class="line">      { role: "readWrite", db: "QA" }</span><br><span class="line">    ]</span><br><span class="line">  }</span><br><span class="line">)</span><br></pre></td></tr></tbody></table></figure>
 <p>我们可以看到上面出现了new_root这个用户了</p>
 <h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p>MongoDB默认是只能本地连接<br>所以我们要去配置文件更改一下，MongoDB的配置文件存在（ /etc/mongod.conf）</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/mongod.conf</span><br></pre></td></tr></tbody></table></figure>
