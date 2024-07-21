@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="v2rayA的使用, phlin&#39;s blog">
-    <meta name="description" content="v2rayA的安装和使用">
+    <meta name="keywords" content="web入门, phlin&#39;s blog">
+    <meta name="description" content="前后端入门介绍">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>v2rayA的使用 | phlin&#39;s blog</title>
+    <title>web入门 | phlin&#39;s blog</title>
     <link rel="icon" type="image/png" href="/1.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
@@ -280,7 +280,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">v2rayA的使用</h1>
+                    <h1 class="description center-align post-title">web入门</h1>
                 </div>
             </div>
         </div>
@@ -304,8 +304,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Ubuntu/">
-                                <span class="chip bg-color">Ubuntu</span>
+                            <a href="/tags/%E5%85%A5%E9%97%A8/">
+                                <span class="chip bg-color">入门</span>
                             </a>
                         
                     </div>
@@ -316,8 +316,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%BF%90%E7%BB%B4/" class="post-category">
-                                运维
+                            <a href="/categories/web/" class="post-category">
+                                web
                             </a>
                         
                     </div>
@@ -329,21 +329,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2024-07-13
+                    2024-07-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-14
+                    2024-07-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    457
+                    223
                 </div>
                 
 
@@ -396,21 +396,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>由于这两天在捣鼓某些环境的安装，等待下载可以等半年，因此决定在云服务器上搞一下加速。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">### 下载v2raya</span><br><span class="line">wget https://github.com/v2rayA/v2rayA/releases/download/v2.2.5/v2raya_linux_x64_2.2.5</span><br><span class="line"></span><br><span class="line">### 设置可执行权限 </span><br><span class="line">chmod +x v2raya_linux_x64_2.2.5</span><br><span class="line"></span><br><span class="line">### 运行</span><br><span class="line">./v2raya_linux_x64_2.2.5</span><br></pre></td></tr></tbody></table></figure>
-
-<p>这样我们就启动好了这个v2rayA，但是我们要把这个作为在后台运行的服务（systemd）,因此创建并填写一个服务单元文件。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/systemd/system/v2raya.service</span><br><span class="line"></span><br><span class="line">sudo vim /etc/systemd/system/v2raya.service</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>编辑内容如下</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=v2rayA Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/home/v2raya_linux_x64_2.2.5  # 根据你的实际路径调整,注释要删掉。</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=3</span><br><span class="line">User=&lt;你的用户名&gt;</span><br><span class="line">Group=&lt;你的用户名&gt;</span><br><span class="line">LimitNOFILE=4096</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>然后重新加载 Systemd 配置，并重新启动v2rayA 服务和查看服务状态。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl start v2raya</span><br><span class="line">sudo systemctl status v2raya</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<p>我们还要在防火墙把2017端口（一般情况下）打开，这样我们就可以在浏览器上通过访问ip：2017查看v2rayA的web可视化界面。</p>
-<p>把我们的订阅地址导入进去，点击我们想要地区的代理（是点右边的选择而不是左边的可选框，不然会显示failed to start v2ray-core: failed: no server is selected. please select at least one server的报错）。</p>
-<p>但，当我们点击选择的时候会有failed to start v2ray-core: geoip.dat or geosite.dat file does not exist的报错，原因是要缺少下载v2ray-core，这时候我们只要再补一个就可以了。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 安装 curl 和 jq</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install curl jq</span><br><span class="line"></span><br><span class="line"># 下载并运行 fhs-install-v2ray 脚本</span><br><span class="line">curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh</span><br><span class="line">sudo bash install-release.sh</span><br></pre></td></tr></tbody></table></figure>
-
-<p>这个时候在回到可视化网址就会点击选择和启动就正常运行了。</p>
+                <h3 id="前后端学习路线简化版"><a href="#前后端学习路线简化版" class="headerlink" title="前后端学习路线简化版"></a>前后端学习路线简化版</h3><p>A：前端学习路线<br>基础版:<br>c++(基础) -&gt; html/javascript/css三件套 -&gt; Vue框架<br>进阶版:<br>git版本管理 -&gt; apifox的使用 -&gt; 响应式布局<br>后端学习路线<br>c++(基础) -&gt; go(开发语言) -&gt; gin(框架) -&gt; gorm(数据库交互) -&gt; 开发实战</p>
+<h3 id="前端学习路线（详细版）"><a href="#前端学习路线（详细版）" class="headerlink" title="前端学习路线（详细版）"></a>前端学习路线（详细版）</h3><p><a target="_blank" rel="noopener" href="http://www.lvyestudy.com/html">前端学习网站</a></p>
+<h3 id="后端学习路线（详细版）"><a href="#后端学习路线（详细版）" class="headerlink" title="后端学习路线（详细版）"></a>后端学习路线（详细版）</h3><p>后端可以先自学或者跟着b站精弘网络学长讲解的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ud4y1o7Yt/?spm_id_from=333.788&amp;vd_source=092e077c0b01da14fa19effa14a36a19">go语法课</a>了解go的基本语法知识,接着学习其他学长讲解的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1o841197jX/?spm_id_from=333.337.search-card.all.click">gin框架</a>、<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1dj411z7pW/?spm_id_from=333.788.recommend_more_video.15&amp;vd_source=092e077c0b01da14fa19effa14a36a19">gorm工具库</a>、<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nN41187ez/?spm_id_from=333.788&amp;vd_source=092e077c0b01da14fa19effa14a36a19">viper配置管理库</a>、项目规范和实战(和<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mu4y1R7Wg/?spm_id_from=333.788">去年</a>相比，<a href="">今年</a>有所更新，可以对照学习）。相信学到这的你已经具备有完成这份大作业的基本素养了，加油！胜利就在前方</p>
 
                 
             </div>
@@ -437,7 +425,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://penryn.github.io/2024/07/13/using-of-v2raya/">https://penryn.github.io/2024/07/13/using-of-v2raya/</a>
+                    <a href="https://penryn.github.io/2024/07/21/web-study/">https://penryn.github.io/2024/07/21/web-study/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -475,8 +463,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Ubuntu/">
-                                    <span class="chip bg-color">Ubuntu</span>
+                                <a href="/tags/%E5%85%A5%E9%97%A8/">
+                                    <span class="chip bg-color">入门</span>
                                 </a>
                             
                         </div>
@@ -555,9 +543,59 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2024/07/21/web-study/">
+                    <div class="card-image">
+                        
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="web入门">
+                        
+                        <span class="card-title">web入门</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前后端入门介绍
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/web/" class="post-category">
+                                    web
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%A5%E9%97%A8/">
+                        <span class="chip bg-color">入门</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2024/07/19/backend-install/">
                     <div class="card-image">
@@ -574,9 +612,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2024-07-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-19
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -594,62 +632,6 @@
                     
                     <a href="/tags/golang/">
                         <span class="chip bg-color">golang</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2024/05/15/errhandler/">
-                    <div class="card-image">
-                        
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="全局错误处理和日志的简单使用">
-                        
-                        <span class="card-title">全局错误处理和日志的简单使用</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            go的全局错误处理中间件和zap第三方日志库的使用
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2024-05-15
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/go/">
-                        <span class="chip bg-color">go</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/">
-                        <span class="chip bg-color">中间件</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%97%A5%E5%BF%97/">
-                        <span class="chip bg-color">日志</span>
                     </a>
                     
                 </div>
