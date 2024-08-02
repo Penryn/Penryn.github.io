@@ -340,14 +340,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-05-24
+                    2024-07-31
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    797
+                    834
                 </div>
                 
 
@@ -459,12 +459,12 @@
 <p>保存并关闭文件，然后重新启动 MongoDB 服务：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart mongodb</span><br></pre></td></tr></tbody></table></figure>
 
-<p>最后要记得到云服务器的安全组开放27017端口</p>
+<p>最后要记得到云服务器的安全组开放27017端口（<del>建议换个开发端口，27017端口真是太不安全了</del>）</p>
 <p>之后进入就要</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongosh -u new_root -p</span><br></pre></td></tr></tbody></table></figure>
 <p>然后输入密码</p>
 <p>以上就可以安装好了</p>
-<p>注意设置账号密码后，登录需要密码，操作如下：</p>
+<p>注意设置账号密码后，登录需要密码，同时也要设置对应数据库，默认是admin的数据库，操作如下：</p>
 <figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongosh --username yourUsername --password yourPassword --authenticationDatabase yourDatabaseName</span><br></pre></td></tr></tbody></table></figure>
                 
             </div>
@@ -901,7 +901,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">16.1k</span>
+                        class="white-color">16.7k</span>
             
             
             

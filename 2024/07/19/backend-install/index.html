@@ -336,21 +336,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-21
+                    2024-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    613
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -407,34 +407,39 @@
 <p><img src="https://bu.dusays.com/2023/07/30/64c6705048825.png" alt="Untitled"></p>
 <p>在安装成功后弹出的主界面上，单击左侧栏第五个按钮打开插件管理器</p>
 <p><img src="https://bu.dusays.com/2023/07/30/64c67058948c8.png" alt="Untitled"></p>
-<p>在搜索栏中搜索 go，安装第一个插件</p>
+<p>在搜索栏中先搜索chinese,安装中文语言包<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/10.webp" alt="Untitled"><br>安装成功后就会显示中文界面<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/11.webp" alt="Untitled"><br>然后继续到插件管理器搜索 go并安装</p>
 <p><img src="https://bu.dusays.com/2023/07/30/64c6705d3cc14.png" alt="Untitled"></p>
 <h1 id="Golang-的安装与配置"><a href="#Golang-的安装与配置" class="headerlink" title="Golang 的安装与配置"></a>Golang 的安装与配置</h1><p>下载链接：<a target="_blank" rel="noopener" href="https://golang.google.cn/">https://golang.google.cn</a></p>
 <p>正常下载安装</p>
 <p><img src="https://bu.dusays.com/2023/07/30/64c67062c4bf1.png" alt="Untitled"></p>
-<p><img src="https://bu.dusays.com/2023/07/30/64c670659c2a3.png" alt="Untitled"></p>
-<p><img src="https://bu.dusays.com/2023/07/30/64c6706a4b5fc.png" alt="Untitled"></p>
-<p><img src="https://bu.dusays.com/2023/07/30/64c67071b0030.png" alt="Untitled"></p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/13.webp" alt="Untitled"></p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/14.webp" alt="Untitled"></p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/15.webp" alt="Untitled"></p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/16.webp" alt="Untitled"></p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/17.webp" alt="Untitled"></p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/18.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/19.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/20.webp" alt="Untitled"></p>
 <p>安装成功后，可以通过 <code>Win+R</code> 快捷键输入 cmd 打开终端，输入 go 并敲下回车，查看 Path 环境变量是否有被自动配置好</p>
 <p><img src="https://bu.dusays.com/2023/07/30/64c6707818591.png" alt="Untitled"></p>
-<p><img src="https://bu.dusays.com/2023/07/30/64c6707e2fa07.png" alt="Untitled"></p>
-<p>并顺势复制以下命令配置境内的镜像源</p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/22.webp" alt="Untitled"></p>
+<p>或者可以输入<code>go version</code>显示当前go的版本<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/23.webp" alt="Untitled"><br>并顺势在终端复制以下命令配置境内的镜像源</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go <span class="built_in">env</span> -w GO111MODULE=on</span><br><span class="line">go <span class="built_in">env</span> -w GOPROXY=https://goproxy.cn,direct</span><br></pre></td></tr></tbody></table></figure>
-
-<p>配置完后重新打开 VSCode 按住 <code>Ctrl+Shift+P</code> 输入 <code>Go:Install/Update Tools</code></p>
-<p>点击后全选</p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/24.webp" alt="Untitled"><br>配置完后重新打开 VSCode 按住 <code>Ctrl+Shift+P</code> 输入 <code>Go:Install/Update Tools</code></p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/25.webp" alt="Untitled"></p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/26.webp" alt="Untitled"><br>点击后全选</p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/27.webp" alt="Untitled"></p>
 <p>点击确定后等待安装完毕即可</p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/28.webp" alt="Untitled"></p>
 <h1 id="编写第一个-Go-程序"><a href="#编写第一个-Go-程序" class="headerlink" title="编写第一个 Go 程序"></a>编写第一个 Go 程序</h1><ul>
-<li>打开文件夹</li>
-<li>新建文件</li>
-<li>将文件重命名为 main.go</li>
-<li>打开终端（终端-&gt;新建终端 或者 输入 Ctrl+Shift+` 快捷键）</li>
+<li>在本地新建一个文件夹，接着在该文件夹内鼠标右键新建文本文档，然后重命名为<code>main.go</code>的文件<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/29.webp" alt="Untitled"></li>
+<li>用vscode打开文件夹<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/30.webp" alt="Untitled"></li>
+<li>打开终端（终端-&gt;新建终端 或者 输入 Ctrl+Shift+` 快捷键）<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/31.webp" alt="Untitled"></li>
 <li>输入 go mod init [name] 来初始化 Go 应用，name 名字可以自己取</li>
 </ul>
 <p>然后在 main 文件中粘贴下面代码</p>
-<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">&nbsp; &nbsp; fmt.Println(<span class="string">"Hello World"</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">&nbsp; &nbsp; fmt.Println(<span class="string">"Hello World!"</span>)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
 
 <p>在终端输入 <code>go run main.go</code> 即可运行显示结果</p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/32.webp" alt="Untitled"></p>
 <h1 id="安装-MySQL"><a href="#安装-MySQL" class="headerlink" title="安装 MySQL"></a>安装 MySQL</h1><p>推荐直接从下面两个镜像站下载 MySQL 的离线安装包</p>
 <p><a target="_blank" rel="noopener" href="https://mirrors.huaweicloud.com/mysql/Downloads/MySQLInstaller/">https://mirrors.huaweicloud.com/mysql/Downloads/MySQLInstaller/</a></p>
 <p><a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/mysql/MySQLInstaller/">https://mirrors.aliyun.com/mysql/MySQLInstaller/</a></p>
@@ -444,9 +449,10 @@
 <p>刚点开安装包时可能会在这个界面卡很久，耐心等待即可</p>
 <p><img src="https://bu.dusays.com/2023/07/30/64c6708a6481d.png" alt="Untitled"></p>
 <p>随后可能会弹出更新提示，直接选择 No 忽略即可</p>
-<p>随后在安装程序的主页面，选择 Server only，剩下的安装步骤中除了 Root Password 以外全部下一步即可。</p>
+<p>随后在安装程序的主页面，选择 Server only，然后安装示意图如下。</p>
 <p><img src="https://bu.dusays.com/2023/07/30/64c6708ecd42f.png" alt="Untitled"></p>
-<p>随后我们需要将 <code>C:\Program Files\MySQL\MySQL Server 8.0\bin</code> 加入系统变量中</p>
+<p><img src="https://img.lonesome.cn/jhwl/class/2024/basic/41.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/42.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/43.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/44.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/45.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/46.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/47.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/48.webp" alt="Untitled"><br>在这一步，千万千万要注意，不要忘记密码！！！<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/49.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/50.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/51.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/52.webp" alt="Untitled"><br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/53.webp" alt="Untitled"></p>
+<p>接着我们去找mysql的bin文件夹<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/54.webp" alt="Untitled"><br>随后我们需要将该文件夹的路径，即 <code>C:\Program Files\MySQL\MySQL Server 8.0\bin</code> 加入系统变量中</p>
 <p><img src="https://bu.dusays.com/2023/07/30/64c67095165e7.png" alt="Untitled"></p>
 <p>右键我的电脑，选择属性</p>
 <p><img src="https://bu.dusays.com/2023/07/30/64c6709b2389d.png" alt="Untitled"></p>
@@ -458,6 +464,25 @@
 <p><img src="https://bu.dusays.com/2023/07/30/64c670aaacc47.png" alt="Untitled"></p>
 <p>单击新建，输入 <code>C:\Program Files\MySQL\MySQL Server 8.0\bin</code></p>
 <p>确定后即完成了 mysql 的 Path 变量配置</p>
+<p>接着我们验证一下是否配置成功<br>我们重新按下<code>win+R</code>快捷键，输入<code>cmd</code>打开终端，接着输入<code>mysql -u root -p</code>,接着系统会要求你输入密码，也就是你刚刚设置的密码，如果你进入到以下这个界面就是成功了<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/61.webp" alt="Untitled"></p>
+<p>然后我们尝试用vscode连接我们的数据库，它有图形化界面，可以减少我们初学者操作数据库的难度。<br>我们打开vscode，接着在插件库安装这两个插件。<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/62.webp" alt="Untitled"><br>点击<code>Create Connection</code>,选择mysql，主机名为<code>127.0.0.1</code>,端口为<code>3306</code>,用户名为<code>root</code>，密码为你刚才自己设置的密码，填写完成后点击下面的连接按钮<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/63.webp" alt="Untitled"><br>当我们看到右上角这一行时则代表我们连接成功了。<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/64.webp" alt="Untitled"><br>我们再点击这个小按钮，也可以显示我们刚刚终端显示的内容。<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/65.webp" alt="Untitled"><br>到此，我们成功使用vscode连接本地的mysql数据库了</p>
+<h1 id="vscode的markdown阅读插件"><a href="#vscode的markdown阅读插件" class="headerlink" title="vscode的markdown阅读插件"></a>vscode的markdown阅读插件</h1><p>比如此次授课的课程材料都是md为后缀的文件，这用markdown语法编写的文件，可以用vscode打开，但是此时还不便查看，因此我们可以再安装一个以下插件。<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/66.webp" alt="Untitled"><br>它的使用方法是这样的，可以显示内容和目录。<br><img src="https://img.lonesome.cn/jhwl/class/2024/basic/67.webp" alt="Untitled"></p>
+<h1 id="vscode常用快捷键"><a href="#vscode常用快捷键" class="headerlink" title="vscode常用快捷键"></a>vscode常用快捷键</h1><ul>
+<li>打开命令面板: Ctrl + Shift + P (Windows), Shift + Option + F (Mac)</li>
+</ul>
+<p>通过命令面板可以快速访问VSCode的所有命令。</p>
+<ul>
+<li>格式化代码: Shift + Alt + F (Windows), Cmd + Shift + F (Mac)</li>
+</ul>
+<p>格式化当前文件的代码。<br>(ctrl+s/Cmd+s保存也可以自动执行格式化代码的命令)</p>
+<ul>
+<li>更改所有匹配项：Ctrl+F2 (windows),Cmd + F2 (Mac)</li>
+</ul>
+<p>可以同时更改所有匹配的字段</p>
+<ul>
+<li>注释：Ctrl + / (windows),Cmd + / (Mac)</li>
+</ul>
+<p>将所选内容注释或取消注释</p>
 
                 
             </div>
@@ -886,7 +911,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">16.1k</span>
+                        class="white-color">16.7k</span>
             
             
             
