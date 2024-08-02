@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="手把手教你搭建属于你自己的hexo博客，并布置在github page上, phlin&#39;s blog">
-    <meta name="description" content="Hexo 是一个快速、简洁且高效的博客框架。">
+    <meta name="keywords" content="跨域的原因和处理, phlin&#39;s blog">
+    <meta name="description" content="跨域是什么，怎么解决">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>手把手教你搭建属于你自己的hexo博客，并布置在github page上 | phlin&#39;s blog</title>
+    <title>跨域的原因和处理 | phlin&#39;s blog</title>
     <link rel="icon" type="image/png" href="/1.png">
     <link rel="stylesheet" type="text/css" href="/css/loading.css">
     
@@ -280,7 +280,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">手把手教你搭建属于你自己的hexo博客，并布置在github page上</h1>
+                    <h1 class="description center-align post-title">跨域的原因和处理</h1>
                 </div>
             </div>
         </div>
@@ -304,8 +304,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/golang/">
+                                <span class="chip bg-color">golang</span>
+                            </a>
+                        
+                            <a href="/tags/vue/">
+                                <span class="chip bg-color">vue</span>
                             </a>
                         
                     </div>
@@ -316,8 +320,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                博客搭建
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                开发
                             </a>
                         
                     </div>
@@ -329,28 +333,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-11-11
+                    2024-08-03
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-06-15
+                    2024-08-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    8 分
                 </div>
                 
 
@@ -396,61 +400,123 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<hr>
-<h2 id="1-环境配置"><a href="#1-环境配置" class="headerlink" title="1.环境配置"></a>1.环境配置</h2><ul>
-<li>Node.js</li>
-<li>Git</li>
-<li>修改npm为淘宝镜像源，并设置cnpm</li>
+                <h2 id="认识跨域"><a href="#认识跨域" class="headerlink" title="认识跨域"></a>认识跨域</h2><h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><p>跨域本质是浏览器基于同源策略的一种安全手段</p>
+<p>浏览器的跨域问题主要指的是浏览器发起的请求。浏览器在发送请求时，会根据同源策略来判断该请求是否可以被发送到目标资源，如果不符合同源策略，则会被浏览器拦截，从而导致跨域问题</p>
+<h3 id="什么是同源策略"><a href="#什么是同源策略" class="headerlink" title="什么是同源策略"></a>什么是同源策略</h3><p>同源策略（Sameoriginpolicy），是一种约定，它是浏览器最核心也最基本的<code>安全功能</code>.不同源的客户端脚本在没有明确授权的情况下，浏览器禁止页面加载或执行与自身不同源的任何脚本。</p>
+<p>浏览器在执行脚本前，会判断脚本是否与打开的网页是同源的。若请求跨域会在控制台报一个CORS异常，目的是为了保护本地数据不被JavaScript代码获取回来的数据所污染，因此拦截的是客户端发出请求的响应数据，即请求发送了，服务器响应了，但是响应的数据被浏览器拦截无法接收。</p>
+<p>所谓同源（即指在同一个域）具有以下三个相同点（同时满足）</p>
+<p>协议相同（protocol）<br>主机相同（host）<br>端口相同（port）<br>反之非同源请求，也就是协议、端口、主机其中一项不相同的时候，这时候就会产生跨域</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>请求 URL</th>
+<th>调用 URL</th>
+<th>跨域情况</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>非跨域</td>
+<td><code>http://www.123.com/index.html</code></td>
+<td><code>http://www.123.com/server.php</code></td>
+<td>否</td>
+</tr>
+<tr>
+<td>跨域</td>
+<td><code>http://www.123.com/index.html</code></td>
+<td><code>http://www.456.com/server.php</code></td>
+<td>主域名不同: <code>123/456</code></td>
+</tr>
+<tr>
+<td>跨域</td>
+<td><code>http://abc.123.com/index.html</code></td>
+<td><code>http://def.123.com/server.php</code></td>
+<td>子域名不同: <code>abc/def</code></td>
+</tr>
+<tr>
+<td>跨域</td>
+<td><code>http://www.123.com:8080/index.html</code></td>
+<td><code>http://www.123.com:8081/server.php</code></td>
+<td>端口不同: <code>8080/8081</code></td>
+</tr>
+<tr>
+<td>跨域</td>
+<td><code>http://www.123.com/index.html</code></td>
+<td><code>https://www.123.com/server.php</code></td>
+<td>协议不同: <code>http/https</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>注意</strong><ul>
+<li><code>localhost</code> 和 <code>127.0.0.1</code> 虽然都指向本机，但也属于跨域。</li>
+<li>跨域是<code>浏览器</code>的限制，你用抓包工具抓取接口数据，是可以看到接口已经把数据返回回来了，只是浏览器的限制，你获取不到数据。用apifox请求接口能够请求到数据。</li>
 </ul>
+</li>
+</ul>
+<h3 id="为什么要有同源策略"><a href="#为什么要有同源策略" class="headerlink" title="为什么要有同源策略"></a>为什么要有同源策略</h3><p>浏览器同源策略的提出本来就是为了避免数据安全的问题，即：限制来自不同源的“document”或脚本，对当前“document”读取或设置某些属性。<br>如果没有这个限制，将会出现什么问题？不妨看一下几个情形：</p>
+<p>可能a.com的一段JavaScript脚本，在b.com未曾加载此脚本时，也可以随意涂改b.com的页面。<br>在浏览器中同时打开某电商网站（域名为b.com），同时在打开另一个网站(a.com)，那么在a.com域名下的脚本可以读取b.com下的Cookie，如果Cookie中包含隐私数据，后果不堪设想。<br>因为可以随意读取任意域名下的Cookie数据，很容易发起CSRF攻击。<br>所以，同源策略是浏览器安全的基础，同源策略一旦出现漏洞被绕过，也将带来非常严重的后果，很多基于同源策略制定的安全方案都将失去效果。</p>
+<h2 id="解决跨域"><a href="#解决跨域" class="headerlink" title="解决跨域"></a>解决跨域</h2><p>但是事实上，随着Web应用的发展，许多场景需要跨域访问资源，如调用第三方API、访问CDN资源等，又或者我们前后端开发时，前端调用后端云服务器上接口也会导致跨域问题，因此我们前后端开发时要想办法去解决这个问题。</p>
+<h3 id="前端跨域请求流程"><a href="#前端跨域请求流程" class="headerlink" title="前端跨域请求流程"></a>前端跨域请求流程</h3><p>跨域请求的流程如下(<code>简单请求(GET、HEAD 或 POST)</code>没有234)：</p>
 <ol>
-<li><p>环境的下载只需点开网站找到适合自己的版本安装即可，这里不赘述。</p>
+<li><p><strong>浏览器发现页面发起了一个跨域请求</strong>：</p>
+<ul>
+<li>当浏览器检测到页面中的请求URL与页面URL的协议、域名或端口号不同，就会认定这是一个跨域请求。</li>
+</ul>
 </li>
-<li><p>安装完毕后可以通过cmd命令行输入node -v,npm -v和git –version来验证，如果出现下图则安装成功。<br>  <img src="/../picture/createblog/1.png" alt="图片"></p>
+<li><p><strong>浏览器发送预检请求（OPTIONS）到目标服务器</strong>：</p>
+<ul>
+<li>对于<code>非简单请求</code>（如使用了自定义头部、非 GET/POST 方法等），浏览器会首先发送一个预检请求（OPTIONS）来检查目标服务器是否允许跨域请求。</li>
+</ul>
 </li>
-<li><p>修改npm的镜像源为在国内更为稳定的淘宝镜像源（建议永久设置）</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">临时改变镜像源 </span><br><span class="line">npm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">永久设置为淘宝镜像源</span><br><span class="line">npm config set registry https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line">cnpm安装，在国外服务器不佳时就可以用cnpm代替npm命令</span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></tbody></table></figure></li>
+<li><p><strong>服务器返回CORS相关响应头</strong>：</p>
+<ul>
+<li>目标服务器收到预检请求后，检查请求头中的来源和方法，并在响应头中添加相关的 CORS 头信息来表示是否允许跨域请求。</li>
+</ul>
+</li>
+<li><p><strong>浏览器根据响应头判断是否允许跨域请求</strong>：</p>
+<ul>
+<li>浏览器检查预检响应中的 CORS 头部信息，如果允许跨域请求，则继续执行实际请求；否则，浏览器会阻止实际请求。</li>
+</ul>
+</li>
+<li><p><strong>如果允许，浏览器继续发送实际请求</strong>：</p>
+<ul>
+<li>浏览器发送实际请求到目标服务器。</li>
+</ul>
+</li>
+<li><p><strong>服务器处理实际请求，并返回响应数据</strong>：</p>
+<ul>
+<li>服务器处理实际请求，并在响应头中添加 CORS 相关头信息，以允许跨域访问。</li>
+</ul>
+</li>
+<li><p><strong>浏览器接收响应数据，完成跨域请求</strong>：</p>
+<ul>
+<li>浏览器接收服务器返回的响应数据，并根据 CORS 头信息决定是否允许前端 JavaScript 访问该数据。如果允许，前端可以正常处理响应数据；否则，访问被阻止。</li>
+</ul>
+</li>
 </ol>
-<hr>
-<h2 id="2-github准备"><a href="#2-github准备" class="headerlink" title="2.github准备"></a>2.github准备</h2><ol>
-<li><p>打开<a target="_blank" rel="noopener" href="https://github.com/">github</a>,并登录或注册你的账号</p>
-</li>
-<li><p>新建一个格式为你的用户名.github.io的仓库，并设置为公开<br> <img src="/../picture/createblog/2.png" alt="图片"><br> <img src="/../picture/createblog/3.png" alt="图片"></p>
-</li>
-<li><p>创建成功后在桌面点击右键，Git Bash Here，打开Git的命令行输入这两行代码</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name "此处填写你注册github时的用户名"</span><br><span class="line">git config --global user.email "此处填写你注册github时的邮箱"</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>然后就可以在C:/Users/[电脑登录的用户名]/下找到.gitconfig文件（如果没能找到，请打开显示windows显示隐藏文件的功能），用编辑器打开看到以下内容代表配置成功。<br><img src="/../picture/createblog/5.png" alt="图片"></p>
-</li>
-</ol>
-<hr>
-<h2 id="3-安装Hexo"><a href="#3-安装Hexo" class="headerlink" title="3.安装Hexo"></a>3.安装Hexo</h2><ol>
-<li>首先新建一个文件夹👀作为你的博客文件的存放位置，点进去打开Git命令行分别输入<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># hexo框架的安装</span><br><span class="line">npm install -g hexo-cli</span><br><span class="line">&nbsp; </span><br><span class="line"># 等上一个命令完成后，再输入下面的命令</span><br><span class="line">hexo init</span><br><span class="line">&nbsp; &nbsp; </span><br><span class="line"># 安装博客所需要的依赖文件(如果上面安装了cnpm则可以把下面的npm换成cnpm)</span><br><span class="line">npm install</span><br></pre></td></tr></tbody></table></figure></li>
-<li>等待运行完成，你会发现此时文件夹内多了好多文件。此时本地搭建完成，我们来运行一下试试看，输入以下命令.<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g           </span><br><span class="line">hexo s                                          </span><br></pre></td></tr></tbody></table></figure>
-<img src="/../picture/createblog/4.png" alt="图片"></li>
-<li>根据提示我们打开 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> ，就可以看到生成的网页，说明Hexo已经成功在本地运行.</li>
-</ol>
-<hr>
-<h2 id="4-发布到github"><a href="#4-发布到github" class="headerlink" title="4.发布到github"></a>4.发布到github</h2><p>我们已经完成了Hexo下载安装和本地运行，接下来将本地博客发布到Github让别人也能通过网址访问你的博客。</p>
-<ol>
-<li><p>在博客所在文件夹下打开Git命令行，分别输入以下命令(如果上面安装了cnpm则可以把下面的npm换成cnpm)</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 安装用来发布的插件</span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">&nbsp;​</span><br><span class="line"># 将本地目录与Github关联起来</span><br><span class="line"># 这步输入后一直回车即可</span><br><span class="line">ssh-keygen -t rsa -C "你的邮箱地址"</span><br></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>在 C:/Users/[电脑登录的用户名] 目录下找到名为.ssh 的文件夹，打开其中的 id_rsa.pub，复制里面的的内容。 然后打开 Github，点击右上角的头像 Settings 选择 SSH and GPG keys。<br><img src="/../picture/createblog/6.png" alt="图片"><br><img src="/../picture/createblog/7.png" alt="图片"></p>
-</li>
-<li><p>点击 New SSH key 将之前复制的内容粘帖到 Key 的框中，Title 可以随意，点击 Add SSH key 完成添加<br><img src="/../picture/createblog/8.png" alt="图片"></p>
-</li>
-<li><p>回到命令行界面测试是否与Github连接成功，输入ssh -T <a href="mailto:git@github.com">git@github.com</a>，出现一个询问内容输入yes，出现You’ve successfully …说明连接成功。</p>
-</li>
-<li><p>进入博客站点目录，用文本编辑器打开_config.yml，这个_config.yml 是博客的配置文件，在以后会经常使用到，修改如下图的几个地方：<br><img src="/../picture/createblog/9.png" alt="图片"></p>
-</li>
-<li><p>然后滑到文件最底部deploy处添加如下代码：</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&nbsp; type: git</span><br><span class="line">&nbsp; repo: git@github.com:github用户名/github用户名.github.io.git &nbsp;        </span><br><span class="line">&nbsp; branch: master     (或者是main)</span><br></pre></td></tr></tbody></table></figure></li>
-</ol>
-<p>7.最后一步，生成页面并发布，我们执行如下命令</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&nbsp; # generate, Hexo会根据配置文件渲染出一套静态页面</span><br><span class="line">&nbsp; hexo g</span><br><span class="line">&nbsp;​</span><br><span class="line">&nbsp; # deploy, 将上一步渲染出的一系列文件上传至至Github Pages</span><br><span class="line">&nbsp; hexo d</span><br><span class="line">&nbsp;​</span><br><span class="line">&nbsp; # 或者也可以直接输入此命令，直接完成渲染和上传</span><br><span class="line">&nbsp; hexo g -d</span><br></pre></td></tr></tbody></table></figure>
-<p>上传完成后，在浏览器中打开网址 你的github用户名.github.io，查看上传的网页。如果页面变成了之前本地调试时的样子，说明上传完成了。没变的话查看一下上传时命令行窗口的信息有没有错误信息，没有的话等一下或按ctrl+f5刷新清除一下浏览器缓存试试。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>根据跨域请求的过程，可以发现，解决跨域的方法有很多，下面列举了三种：</p>
+<ul>
+<li><strong>后端</strong>CORS</li>
+<li><strong>前端</strong>Proxy</li>
+<li><strong>nginx</strong>反向代理(试过一次，但没有成功，可能是哪里搞错了)</li>
+</ul>
+<h4 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h4><p>CORS （Cross-Origin Resource Sharing，跨域资源共享）是一个系统，它由一系列传输的HTTP头组成，这些HTTP头决定浏览器是否阻止前端 JavaScript 代码获取跨域请求的响应</p>
+<p>CORS 实现起来非常方便，只需要增加一些 HTTP 头，让服务器能声明允许的访问来源</p>
+<p>这种方式最主要的特点就是会在响应的 HTTP 首部增加 Access-Control-Allow-Origin 等信息，从而判定那些资源站可以进行跨域请求，还有几个其他相关的 HTTP 首部进行更加精细化的控制，最主要的还是&nbsp;Access-Control-Allow-Origin 。</p>
+<p>只要后端实现了 CORS，就实现了跨域<br><img src="https://camo.githubusercontent.com/e89fa35a501f730653c5682f3989dac9139d90bf0483db92ad08217309c86968/68747470733a2f2f7374617469632e7675652d6a732e636f6d2f31343064656238302d346533322d313165622d616239302d6439616538313462323430642e706e67"><br>以 gin框架举例</p>
+<p>添加中间件，直接设置Access-Control-Allow-Origin请求头</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//gin框架自定义的中间件</span></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"></span><br><span class="line">	<span class="string">"github.com/gin-contrib/cors"</span></span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line"></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Corss</span><span class="params">(c *gin.Context)</span></span> {</span><br><span class="line">	c.Writer.Header().Set(<span class="string">"Access-Control-Allow-Origin"</span>, <span class="string">"*"</span>)</span><br><span class="line">	c.Writer.Header().Set(<span class="string">"Access-Control-Allow-Methods"</span>, <span class="string">"GET, POST, PUT, DELETE, OPTIONS"</span>)</span><br><span class="line">	c.Writer.Header().Set(<span class="string">"Access-Control-Allow-Headers"</span>, <span class="string">"Content-Type, Authorization"</span>)</span><br><span class="line">	c.Writer.Header().Set(<span class="string">"Access-Control-Expose-Headers"</span>, <span class="string">"Authorization"</span>)</span><br><span class="line">	c.Writer.Header().Set(<span class="string">"Access-Control-Max-Age"</span>, <span class="string">"172800"</span>)</span><br><span class="line">	c.Writer.Header().Set(<span class="string">"Access-Control-Allow-Credentials"</span>, <span class="string">"true"</span>)</span><br><span class="line">	<span class="keyword">if</span> c.Request.Method == <span class="string">"OPTIONS"</span> {</span><br><span class="line">		c.AbortWithStatus(<span class="number">200</span>)</span><br><span class="line">		<span class="keyword">return</span></span><br><span class="line">	}</span><br><span class="line">	c.Next()</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//引用cors的第三方库的中间件(更有效一点)</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Cors</span><span class="params">()</span></span>gin.HandlerFunc{</span><br><span class="line">	config:=cors.DefaultConfig()</span><br><span class="line">	config.AllowAllOrigins=<span class="literal">true</span></span><br><span class="line">	config.AllowHeaders=<span class="built_in">append</span>(config.AllowHeaders,<span class="string">"Authorization"</span>)</span><br><span class="line">	<span class="keyword">return</span> cors.New(config)</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>ps: Access-Control-Allow-Origin 设置为*其实意义不大，可以说是形同虚设，实际应用中，上线前我们会将Access-Control-Allow-Origin 值设为我们目标host</p>
+<h4 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h4><p>代理（Proxy）也称网络代理，是一种特殊的网络服务，允许一个（一般为客户端）通过这个服务与另一个网络终端（一般为服务器）进行非直接的连接。一些网关、路由器等网络设备具备网络代理功能。一般认为代理服务有利于保障网络终端的隐私或安全，防止攻击</p>
+<p>如果是通过vue-cli脚手架工具搭建项目，我们可以通过webpack为我们起一个本地服务器作为请求的代理对象</p>
+<p>通过该服务器转发请求至目标服务器，得到结果再转发给前端，但是最终发布上线时如果web应用和接口服务器不在一起仍会跨域</p>
+<p>在vue.config.js文件，新增以下代码</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">amodule.<span class="property">exports</span> = {</span><br><span class="line">    <span class="attr">devServer</span>: {</span><br><span class="line">        <span class="attr">host</span>: <span class="string">'127.0.0.1'</span>,</span><br><span class="line">        <span class="attr">port</span>: <span class="number">8084</span>,</span><br><span class="line">        <span class="attr">open</span>: <span class="literal">true</span>,<span class="comment">// vue项目启动时自动打开浏览器</span></span><br><span class="line">        <span class="attr">proxy</span>: {</span><br><span class="line">            <span class="string">'/api'</span>: { <span class="comment">// '/api'是代理标识，用于告诉node，url前面是/api的就是使用代理的</span></span><br><span class="line">                <span class="attr">target</span>: <span class="string">"http://xxx.xxx.xx.xx:8080"</span>, <span class="comment">//目标地址，一般是指后台服务器地址</span></span><br><span class="line">                <span class="attr">changeOrigin</span>: <span class="literal">true</span>, <span class="comment">//是否跨域</span></span><br><span class="line">                <span class="attr">pathRewrite</span>: { <span class="comment">// pathRewrite 的作用是把实际Request Url中的'/api'用""代替</span></span><br><span class="line">                    <span class="string">'^/api'</span>: <span class="string">""</span> </span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p>通过axios发送请求中，配置请求的根路径</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="property">defaults</span>.<span class="property">baseURL</span> = <span class="string">'/api'</span></span><br></pre></td></tr></tbody></table></figure>
 
+<h4 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h4><p><del>我搜到都说可以，但是我之前尝试时没有成功</del><br>既然不能跨域请求，那么我们不跨域就可以了，通过在请求到达服务器前部署一个服务，将接口请求进行转发，这就是反向代理。通过一定的转发规则可以将前端的请求转发到其他的服务。<br>　通过反向代理我们将前后端项目统一通过反向代理来提供对外的服务，这样在前端看上去就跟不存在跨域一样。<br>　　 反向代理麻烦之处就在原对 Nginx 等反向代理服务的配置，在目前前后端分离的项目中很多都是采用这种方式。</p>
+<figure class="highlight vim"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server {</span><br><span class="line">    listen    <span class="number">80</span>;</span><br><span class="line">    # server_name www.josephxia.<span class="keyword">com</span>;</span><br><span class="line">    location / {</span><br><span class="line">        root  /var/www/html;</span><br><span class="line">        <span class="built_in">index</span>  <span class="built_in">index</span>.html <span class="built_in">index</span>.htm;</span><br><span class="line">        try_files $uri $uri/ /<span class="built_in">index</span>.html;</span><br><span class="line">    }</span><br><span class="line">    location /api {</span><br><span class="line">        proxy_pass  http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8000</span>;</span><br><span class="line">        proxy_redirect   off;</span><br><span class="line">        proxy_set_header  Host       $host;</span><br><span class="line">        proxy_set_header  <span class="keyword">X</span>-Real-IP     $remote_addr;</span><br><span class="line">        proxy_set_header  <span class="keyword">X</span>-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
                 
             </div>
             <hr/>
@@ -476,7 +542,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://penryn.github.io/2023/11/11/createblog/">https://penryn.github.io/2023/11/11/createblog/</a>
+                    <a href="https://penryn.github.io/2024/08/03/kua-yu-de-yuan-yin-he-chu-li/">https://penryn.github.io/2024/08/03/kua-yu-de-yuan-yin-he-chu-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -514,8 +580,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/golang/">
+                                    <span class="chip bg-color">golang</span>
+                                </a>
+                            
+                                <a href="/tags/vue/">
+                                    <span class="chip bg-color">vue</span>
                                 </a>
                             
                         </div>
@@ -594,86 +664,35 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/11/23/gorm-association/">
+                <a href="/2024/08/03/kua-yu-de-yuan-yin-he-chu-li/">
                     <div class="card-image">
                         
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="gorm的多种关联方式">
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="跨域的原因和处理">
                         
-                        <span class="card-title">gorm的多种关联方式</span>
+                        <span class="card-title">跨域的原因和处理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            gorm关联方法
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-11-23
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
-                                    后端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/go/">
-                        <span class="chip bg-color">go</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/11/11/createblog/">
-                    <div class="card-image">
-                        
-                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="手把手教你搭建属于你自己的hexo博客，并布置在github page上">
-                        
-                        <span class="card-title">手把手教你搭建属于你自己的hexo博客，并布置在github page上</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Hexo 是一个快速、简洁且高效的博客框架。
+                            跨域是什么，怎么解决
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-11-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-08-03
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-category">
-                                    博客搭建
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                    开发
                                 </a>
                             
                             
@@ -684,8 +703,60 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
+                    <a href="/tags/golang/">
+                        <span class="chip bg-color">golang</span>
+                    </a>
+                    
+                    <a href="/tags/vue/">
+                        <span class="chip bg-color">vue</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2024/07/21/web-study/">
+                    <div class="card-image">
+                        
+                        <img src="/../picture/createblog/bg.jpg" class="responsive-img" alt="web入门">
+                        
+                        <span class="card-title">web入门</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前后端入门介绍
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2024-07-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%BC%80%E5%8F%91/" class="post-category">
+                                    开发
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%85%A5%E9%97%A8/">
+                        <span class="chip bg-color">入门</span>
                     </a>
                     
                 </div>
